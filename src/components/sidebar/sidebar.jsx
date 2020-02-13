@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import SkillLevel from "./skillLevel";
 import Age from "./age";
 import Postcode from "./postcode";

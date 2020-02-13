@@ -16,7 +16,7 @@
 
         [{
             "Id": 1681,
-            "Name": "Construction Gateway",
+            "Name": "Construction Gateways",
             "Url": "/what-we-do/productivity-and-skills/find-an-opportunity/construction-gateway/",
             "PubDate": "2020-01-27T10:53:12.66Z",
             "Opportunity": ["Apprenticeships"],
@@ -26,7 +26,7 @@
             "VideoUrl": null,
             "BlogImageSmall": "http://placeimg.com/600/432",
             "BlogImageBig": "http://placeimg.com/950/350",
-            "SkillLevel": "Beginner",
+            "SkillLevel": "Advanced",
             "Where": "Dudley College, DY1 2HG",
             "LiveIn": "West Midlands county",
             "Age": "16 or older",

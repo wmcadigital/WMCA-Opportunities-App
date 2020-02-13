@@ -18,7 +18,7 @@ const baseUrl = window.location.origin;
 // append the api path to the end of the baseUrl, depending on environment
 // we're running and the testing the app
 const testApiUrl = `${baseUrl}/todeleteopportunities.json`;
-const apiUrl = `${baseUrl}/peoples-stories/api`;
+//const apiUrl = `${baseUrl}/peoples-stories/api`;
 
 // default load status whilst data is loading
 export const fetchLoading = () => {

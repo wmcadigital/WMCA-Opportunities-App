@@ -13,12 +13,12 @@ const App = () => {
           <Route exact path="/opportunities/" component={BlogList} />
           <Route
             exact
-            path="/opportunities/:skilllevel/"
+            path="/opportunities/skilllevel/:skilllevel/"
             component={BlogList}
           />
           <Route
             exact
-            path="/opportunities/:opportunity/"
+            path="/opportunities/opportunity/:opportunity/"
             component={BlogList}
           />
           <Route
