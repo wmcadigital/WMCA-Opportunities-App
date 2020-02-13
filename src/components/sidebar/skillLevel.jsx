@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Select from 'react-select'
-import { Link } from "react-router-dom";
+// import Select from 'react-select'
+// import { Link } from "react-router-dom";
 
 class SkillLevel extends Component {
 
@@ -31,7 +31,7 @@ class SkillLevel extends Component {
 		return (
 			<>
 				<div className="wmca-form wdgt">
-					<label for="dropdown" class="wmca-form-label">Skill level</label>
+					<label htmlFor="dropdown" className="wmca-form-label">Skill level</label>
 					<select className="" onChange={this.handleChange}>
 						<option value="">Select</option>
 						<option value="advanced">Advanced</option>
