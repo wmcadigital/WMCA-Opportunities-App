@@ -12,7 +12,7 @@ import {
 // import components
 import Sidebar from "../../sidebar/sidebar";
 import Header from "../../header/header";
-import SearchBar from "../../searchBar/searchBar";
+
 import BlogSummary from "../../blogSummary/blogSummary";
 
 class BlogList extends Component {
@@ -199,11 +199,6 @@ class BlogList extends Component {
               {!loading && (
                 <>
                   <h2>Filter</h2>
-                  <SearchBar
-                    onFormSubmit={this.onFormSubmit}
-                    onChangeInput={this.onChangeInput}
-                    searchTerm={searchTerm}
-                  />
                   <Sidebar skilllevels={skilllevels} categories={categories} match={match} opportunities={opportunities}  match={match} eligibilities={eligibilities} />
                 </>
               )}

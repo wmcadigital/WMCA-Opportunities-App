@@ -9,9 +9,6 @@ class Age extends Component {
     this.state = {
       ageCheck: ''
     }
-
-
-    
   }
 
 
@@ -21,7 +18,6 @@ class Age extends Component {
     })
     //Console log the age
     console.log(event.target.value);
-
   }
 
 
