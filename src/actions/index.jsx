@@ -34,6 +34,7 @@ export const fetchBlogs = () => {
       .get(testApiUrl)
       // chain and return to use later
       .then(res => {
+        console.log(res.data);
         return res.data;
       })
       // chain and return if promise was rejected
