@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 class IndustryList extends Component {
 
 	constructor(props) {
-		super(props);
-		
+		super(props);	
 
 		this.radio_allIndustries = this.radio_allIndustries.bind(this);
 		this.radio_eachIndustry = this.radio_eachIndustry.bind(this);

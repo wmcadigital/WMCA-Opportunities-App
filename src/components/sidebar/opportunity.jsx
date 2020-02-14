@@ -5,12 +5,46 @@ class Opportunity extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      match: this.props.match
-    };
 
-    this.radio_eachOpportunity = this.radio_eachOpportunity.bind(this)
+    this.radio_eachOpportunity = this.radio_eachOpportunity.bind(this);
+    this.radio_allOpportunity = this.radio_allOpportunity.bind(this);
   }
+
+radio_allOpportunity = () => {
+
+  const { match } = this.props;
+
+	return (
+			<div key="All-Opportunities">
+		        <Link to="/opportunities/">
+		          <span className="wmca-form__radio">
+		            <label htmlFor="All Opportunities" className="wmca-form__radio-label">
+		              All Opportunities
+		            </label>
+		            {match.url === "/opportunities/" && (
+		              <input
+		                type="radio"
+		                name="All-Opportunities"
+		                id="All-Opportunities"
+		                value="All Opportunities"
+		                defaultChecked
+		              />
+		            )}
+		            {match.url !== "/opportunities/" && (
+		              <input
+		                type="radio"
+		                name="All-Opportunities"
+		                id="All-Opportunities"
+		                value="All Opportunities"
+		              />
+		            )}
+		            <span className="wmca-form__radio-checkmark"> </span>
+		          </span>
+		        </Link>
+		    </div>
+		)
+}
+
 
   radio_eachOpportunity = () => {
 
@@ -19,6 +53,12 @@ class Opportunity extends Component {
     const opportunitiesNewSet = new Set(opportunitiesFlatted);
     const opportunitiesArray = [...opportunitiesNewSet];
 
+
+
+console.log('This the data: ')
+console.log(opportunitiesNewSet);
+
+
     return (
       opportunities &&
       opportunitiesArray.map(opportunity => {
@@ -26,6 +66,7 @@ class Opportunity extends Component {
           .toLowerCase()
           .replace(/'/g, escape);
         const decodedUrl = decodeURIComponent(encodedUrl);
+
         return (
           <div key={opportunity}>
             <Link to={`/opportunities/${encodedUrl}`}>
@@ -39,7 +80,8 @@ class Opportunity extends Component {
                     name="radio"
                     id={opportunity}
                     value={opportunity}
-                    checked={this.state.selectedOpportunity === 'option1'}
+                    // checked={this.state.selectedOpportunity === 'option1'}
+                    defaultChecked
                   />
                 )}
                 {match.params.opportunity !== decodedUrl && (
@@ -59,48 +101,23 @@ class Opportunity extends Component {
     );
   }
 
-  render() {
-    return (
-      <>
-        <label htmlFor="radio" className="wmca-form-label">
-          Opportunities
-            </label>
 
-        <div>
-          <div className="wmca-form__radio" id="radio">
-            <div key="Opportunities">
-              <Link to="/opportunities/">
-                <span className="wmca-form__radio">
-                  <label htmlFor="Opportunities" className="wmca-form__radio-label">
-                    All Opportunities
-                        </label>
-                  {this.state.match.path === `/opportunities/` && (
-                    <input
-                      type="radio"
-                      name="radio"
-                      id="Opportunities"
-                      value="Opportunities"
-                      defaultChecked
-                    />
-                  )}
-                  {this.props.match.url !== `/opportunities/` && (
-                    <input
-                      type="radio"
-                      name="radio"
-                      id="Opportunities"
-                      value="Opportunities"
-                    />
-                  )}
-                  <span className="wmca-form__radio-checkmark"> </span>
-                </span>
-              </Link>
-            </div>
-          </div>
-        </div>
-        {this.radio_eachOpportunity()}
-      </>
-    );
-  }
+  	render() {
+		return (
+			<div>
+			<label htmlFor="radio" className="wmca-form-label">
+			Opportunities
+			</label>
+
+			<div>
+				<div className="wmca-form__radio" id="radio">
+          {this.radio_allOpportunity()}
+				  {this.radio_eachOpportunity()}
+				</div>
+			</div>
+			</div>
+		)
+  } 
 
 }
 
