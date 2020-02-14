@@ -69,7 +69,7 @@ console.log(opportunitiesNewSet);
 
         return (
           <div key={opportunity}>
-            <Link to={`/opportunities/${encodedUrl}`}>
+            <Link to={`/opportunities/opportunity/${encodedUrl}`}>
               <span className="wmca-form__radio">
                 <label htmlFor={opportunity} className="wmca-form__radio-label">
                   {opportunity}
@@ -80,7 +80,6 @@ console.log(opportunitiesNewSet);
                     name="radio"
                     id={opportunity}
                     value={opportunity}
-                    // checked={this.state.selectedOpportunity === 'option1'}
                     defaultChecked
                   />
                 )}
