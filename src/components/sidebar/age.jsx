@@ -28,7 +28,7 @@ class Age extends Component {
       <div className="wmca-form wdgt">
         <label htmlFor="r testadio" className="wmca-form-label">
           Age - e.g. 25
-            <input class="pure-u-1-1" type="text" name="searchStories" value={this.state.input} onChange={this.handleAgeCheck.bind(this)} />
+            <input className="pure-u-1-1" type="text" name="searchStories" value={this.state.input} onChange={this.handleAgeCheck.bind(this)} />
         </label>
       </div>
     )

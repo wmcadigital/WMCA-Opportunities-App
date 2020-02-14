@@ -195,7 +195,7 @@ class BlogList extends Component {
           <div className="pure-g justify-between">
             <div className="pure-u-1 pure-u-md-1-4">
               {/* if the loading of blogs is done, 
-              then show search bar and sidebar links */}
+              then show  sidebar links */}
               {!loading && (
                 <>
                   <h2>Filter</h2>
