@@ -10,6 +10,7 @@ class IndustryList extends Component {
 		this.radio_eachIndustry = this.radio_eachIndustry.bind(this);
 	}
 
+	//All Industry Opportunities
 	radio_allIndustries = () => {
 
 		const { match } = this.props;
@@ -45,6 +46,7 @@ class IndustryList extends Component {
 		)
 	}
 
+	//Each Industry Opportunities Buttons
 	radio_eachIndustry = () => {
 
 	    const { categories, match } = this.props;
@@ -88,9 +90,11 @@ class IndustryList extends Component {
 	    );
 	}
 
+
+	//Render the buttons in the sidebar
 	render() {
 		return (
-			<>
+			<div>
 			<label htmlFor="radio" className="wmca-form-label">
 			Industry
 			</label>
@@ -101,7 +105,7 @@ class IndustryList extends Component {
 					{this.radio_eachIndustry()}
 				</div>
 			</div>
-			</>
+			</div>
 		)
 	}
 }
