@@ -55,8 +55,8 @@ radio_allOpportunity = () => {
 
 
 
-console.log('This the data: ')
-console.log(opportunitiesNewSet);
+// console.log('This the data: ')
+// console.log(opportunitiesNewSet);
 
 
     return (
