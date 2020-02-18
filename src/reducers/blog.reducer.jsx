@@ -2,6 +2,7 @@ import {
   FETCH_LOADING,
   FETCH_BLOGS,
   FETCH_ELIGIBILITIES,
+  FETCH_WHERE,
   FETCH_SKILLLEVELS,
   FETCH_CATEGORIES,
   FETCH_OPPORTUNITIES,
@@ -17,6 +18,7 @@ const INTIAL_STATE = {
   getCategories: null,
   getOpportunities: null,
   getEligibilities: null,
+  getWhere: null,
   getDate: null,
   getSearch: "",
   getVisibleResults: 8
@@ -67,6 +69,19 @@ export default (state = INTIAL_STATE, action) => {
           new Set(
             state.getBlogs.ChildPages.map(blog => {
               return blog.Opportunity;
+            })
+          )
+        )
+      };
+
+      case FETCH_WHERE:
+      return {
+        ...state,
+        getLoading: false,
+        getWhere: Array.from(
+          new Set(
+            state.getBlogs.ChildPages.map(blog => {
+              return blog.Where;
             })
           )
         )
