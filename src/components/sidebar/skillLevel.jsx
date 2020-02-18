@@ -29,7 +29,7 @@ class SkillLevel extends Component {
 	SkillLevelFunction = () => {
 
 		return (
-			<>
+			<div>
 				<div className="wmca-form wdgt">
 					<label htmlFor="dropdown" className="wmca-form-label">Skill level</label>
 					<select className="" onChange={this.handleChange}>
@@ -39,7 +39,7 @@ class SkillLevel extends Component {
 						<option value="beginner">Beginner</option>
 					</select>
 				</div>
-			</>
+			</div>
 		)
 	}
 

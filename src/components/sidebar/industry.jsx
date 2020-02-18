@@ -52,7 +52,10 @@ class IndustryList extends Component {
 	    const { categories, match } = this.props;
 	    const categoriesFlatted = categories && categories.flat();
 	    const categoriesNewSet = new Set(categoriesFlatted);
-	    const categoriesArray = [...categoriesNewSet];
+		const categoriesArray = [...categoriesNewSet];
+		
+		console.log("categories:")
+		console.log(categories)
 
 	    return (
 	      categories &&

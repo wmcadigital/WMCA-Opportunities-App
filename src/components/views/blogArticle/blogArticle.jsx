@@ -33,14 +33,14 @@ class BlogArticle extends Component {
 
   render() {
     // destructure props
-    const { match, categories, opportunities, skilllevels, eligibilities } = this.props;
+    const { match, categories, opportunities, skilllevels, eligibilities, where } = this.props;
 
     return (
       <>
         <div className="container-wide bg-white pad-30">
           <div className="pure-g justify-between">
             <div className="pure-u-1 pure-u-md-1-4">
-              <Sidebar categories={categories} match={match} opportunities={opportunities} match={match} skilllevels={skilllevels} match={match} eligibilities={eligibilities} />
+              <Sidebar categories={categories} match={match} opportunities={opportunities} match={match} skilllevels={skilllevels} match={match} eligibilities={eligibilities} where={where} />
             </div>
             <div className="pure-u-1 pure-u-md-5-8">{this.renderArticle()}</div>
           </div>
@@ -58,6 +58,7 @@ const mapStateToProps = state => {
     categories: state.blogs.getCategories,
     opportunities: state.blogs.getOpportunities,
     eligibilities: state.blogs.getEligibilities,
+    where: state.blogs.getWhere,
     skilllevels: state.blogs.getSkillLevels,
     date: state.blogs.getDate,
     searchTerm: state.blogs.getSearch

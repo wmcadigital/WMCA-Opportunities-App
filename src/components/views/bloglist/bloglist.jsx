@@ -17,6 +17,7 @@ import BlogSummary from "../../blogSummary/blogSummary";
 
 class BlogList extends Component {
   componentDidMount() {
+    console.log('props -all:')
     console.log(this.props);
     // destructure props
     const { fetchLoading, fetchBlogs } = this.props;
@@ -73,7 +74,7 @@ class BlogList extends Component {
 
   renderBlogs() {
     // destructure props
-    const { blogs, searchTerm, visibleResults, match, eligibilities, opportunities, skilllevels } = this.props;
+    const { blogs, searchTerm, visibleResults, match, eligibilities, opportunities, skilllevels, age, where } = this.props;
 
     // set a const variable check if
     // a searchterm has been entered and filter blogs
@@ -121,6 +122,7 @@ class BlogList extends Component {
           // if it is, we convert the categories in the blog to a string, and lowercase
           // then check if the array of categories includes/matches that of the params
           if (match.params.category !== undefined) {
+            console.log("Running category / industry filter");
             return Object.values(blog.Category).some(value =>
               value
                 .toString()
@@ -136,6 +138,7 @@ class BlogList extends Component {
           // if it is, we convert the opportunities in the blog to a string, and lowercase
           // then check if the array of opportunities includes/matches that of the params
           if (match.params.opportunity !== undefined) {
+            console.log("Running opportunity filter");
             return Object.values(blog.Opportunity).some(value =>
               value
                 .toString()
@@ -157,6 +160,38 @@ class BlogList extends Component {
                 .toString()
                 .toLowerCase()
                 .includes(match.params.eligibility)
+            );
+          }
+          // just return all the blogs if params category is undefined
+          return blog;
+        })
+        .filter(blog => {
+          // we're looking at the match params to see if category is defined
+          // if it is, we convert the categories in the blog to a string, and lowercase
+          // then check if the array of categories includes/matches that of the params
+          if (match.params.age !== undefined) {
+            console.log("Running ages filter");
+            return Object.values(blog.Age).some(value =>
+              value
+                .toString()
+                .toLowerCase()
+                .includes(match.params.age)
+            );
+          }
+          // just return all the blogs if params category is undefined
+          return blog;
+        })
+        .filter(blog => {
+          // we're looking at the match params to see if category is defined
+          // if it is, we convert the categories in the blog to a string, and lowercase
+          // then check if the array of categories includes/matches that of the params
+          if (match.params.where !== undefined) {
+            console.log("Running Where filter");
+            return Object.values(blog.Where).some(value =>
+              value
+                .toString()
+                .toLowerCase()
+                .includes(match.params.where)
             );
           }
           // just return all the blogs if params category is undefined
@@ -185,7 +220,9 @@ class BlogList extends Component {
       opportunities,
       eligibilities,
       searchTerm,
-      visibleResults
+      visibleResults,
+      age,
+      where
     } = this.props;
 
     return (
@@ -199,7 +236,7 @@ class BlogList extends Component {
               {!loading && (
                 <>
                   <h2>Filter</h2>
-                  <Sidebar skilllevels={skilllevels} categories={categories} match={match} opportunities={opportunities}  match={match} eligibilities={eligibilities} />
+                  <Sidebar skilllevels={skilllevels} categories={categories} match={match} opportunities={opportunities}  match={match} eligibilities={eligibilities}  age={age} where={where} />
                 </>
               )}
             </div>
@@ -237,6 +274,7 @@ const mapStateToProps = state => {
     categories: state.blogs.getCategories,
     opportunities: state.blogs.getOpportunities,
     eligibilities: state.blogs.getEligibilities,
+    wwhere: state.blogs.getWhere,
     date: state.blogs.getDate,
     searchTerm: state.blogs.getSearch,
     visibleResults: state.blogs.getVisibleResults

@@ -33,6 +33,11 @@ const App = () => {
           />
           <Route
             exact
+            path="/opportunities/where/:where/"
+            component={BlogList}
+          />
+          <Route
+            exact
             path="/opportunities/api/:article/"
             component={BlogArticle}
           />

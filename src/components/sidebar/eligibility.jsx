@@ -55,6 +55,11 @@ class eligibility extends Component {
     const eligibilitiesNewSet = new Set(eligibilitiesFlatted);
     const eligibilitiesArray = [...eligibilitiesNewSet];
 
+    console.log('dedede')
+    console.log(eligibilities)
+    console.log('eligibilitiesNewSet');
+    console.log(eligibilitiesNewSet);
+
     return (
       eligibilities &&
       eligibilitiesArray.map(eligibility => {
