@@ -55,7 +55,16 @@ class eligibility extends Component {
     const eligibilitiesNewSet = new Set(eligibilitiesFlatted);
     const eligibilitiesArray = [...eligibilitiesNewSet];
 
-    console.log('dedede')
+    /*
+      You will see below that the data is coming
+      through the console.log just fine but that posecode.jsx is having issues
+
+      Can you see if I have made an error somewhere?
+      
+
+    */
+
+    console.log('eligibilities')
     console.log(eligibilities)
     console.log('eligibilitiesNewSet');
     console.log(eligibilitiesNewSet);

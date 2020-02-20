@@ -40,7 +40,14 @@ class BlogArticle extends Component {
         <div className="container-wide bg-white pad-30">
           <div className="pure-g justify-between">
             <div className="pure-u-1 pure-u-md-1-4">
-              <Sidebar categories={categories} match={match} opportunities={opportunities} match={match} skilllevels={skilllevels} match={match} eligibilities={eligibilities} where={where} />
+              <Sidebar 
+                categories={categories} 
+                opportunities={opportunities} 
+                skilllevels={skilllevels}  
+                eligibilities={eligibilities} 
+                where={where}
+                match={match} 
+              />
             </div>
             <div className="pure-u-1 pure-u-md-5-8">{this.renderArticle()}</div>
           </div>

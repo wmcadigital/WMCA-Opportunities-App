@@ -17,7 +17,7 @@ import BlogSummary from "../../blogSummary/blogSummary";
 
 class BlogList extends Component {
   componentDidMount() {
-    console.log('props -all:')
+    console.log('props - all:')
     console.log(this.props);
     // destructure props
     const { fetchLoading, fetchBlogs } = this.props;
