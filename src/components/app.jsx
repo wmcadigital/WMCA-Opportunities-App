@@ -11,37 +11,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/opportunities/" component={BlogList} />
-          <Route
-            exact
-            path="/opportunities/skilllevel/:skilllevel/"
-            component={BlogList}
-          />
-          <Route
-            exact
-            path="/opportunities/opportunity/:opportunity/"
-            component={BlogList}
-          />
-          <Route
-            exact
-            path="/opportunities/category/:category/"
-            component={BlogList}
-          />
-          <Route
-            exact
-            path="/opportunities/eligibilities/:eligibility/"
-            component={BlogList}
-          />
-          <Route
-            exact
-            path="/opportunities/where/:where/"
-            component={BlogList}
-          />
-          <Route
-            exact
-            path="/opportunities/api/:article/"
-            component={BlogArticle}
-          />
-        </Switch>
+          </Switch>
       </Router>
     </>
   );
