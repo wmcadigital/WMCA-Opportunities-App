@@ -39,31 +39,23 @@ class postcode extends Component {
         const decodedUrl = decodeURIComponent(encodedUrl);
         return (
           <div key={where}>
-            <Link to={`/opportunities/where/${encodedUrl}`}>
-              <span className="wmca-form__radio">
-                <label htmlFor={where} className="wmca-form__radio-label">
-                  {where}
-                </label>
-                {match.params.where === decodedUrl && (
-                  <input
-                    type="radio"
-                    name="radio"
-                    id={where}
-                    value={where}
-                    defaultChecked
-                  />
-                )}
-                {match.params.where !== decodedUrl && (
-                  <input
-                    type="radio"
-                    name="radio"
-                    id={where}
-                    value={where}
-                  />
-                )}
-                <span className="wmca-form__radio-checkmark"> </span>
-              </span>
-            </Link>
+
+          
+          <Link to={`/opportunities/where/${encodedUrl}`}>
+          <input
+          className="pure-u-1-1"
+          type="text"
+          name="searchStories"
+          onChange={this.handleChange}
+          />
+          </Link>
+          
+          {match.params.where === decodedUrl && (
+
+            <div>
+            <h1>dedede</h1>
+            </div>
+            )}
           </div>
         )
       })
@@ -77,17 +69,7 @@ class postcode extends Component {
       <div>
         <label htmlFor="where" className="wmca-form-label">
           Postcode - e.g. DY7 4PU
-            <input
-            className="pure-u-1-1"
-            type="text"
-            name="searchStories"
-            onChange={this.handleChange}
-          />
-        </label>
-
-
-        <br />
-
+          </label> 
         {this.renderSearchData()}
       </div>
     )

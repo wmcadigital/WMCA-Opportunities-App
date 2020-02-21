@@ -10,7 +10,11 @@ const App = () => {
     <>
       <Router>
         <Switch>
-          <Route exact path="/opportunities/" component={BlogList} />
+          <Route 
+            exact 
+            path="/opportunities/" 
+            component={BlogList} 
+          />
           <Route
             exact
             path="/opportunities/skilllevel/:skilllevel/"
