@@ -19,7 +19,7 @@ class Sidebar extends Component {
 
           <Age match={this.props.match} age={this.props.ages} />
 
-          <Postcode match={this.props.match} postcodes={this.props.where} />
+          <Postcode match={this.props.match} where={this.props.where} />
 
           <Opportunity match={this.props.match} opportunities={this.props.opportunities}/>
           

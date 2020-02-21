@@ -17,8 +17,6 @@ import BlogSummary from "../../blogSummary/blogSummary";
 
 class BlogList extends Component {
   componentDidMount() {
-    console.log('props - all:')
-    console.log(this.props);
     // destructure props
     const { fetchLoading, fetchBlogs } = this.props;
 
@@ -122,7 +120,6 @@ class BlogList extends Component {
           // if it is, we convert the categories in the blog to a string, and lowercase
           // then check if the array of categories includes/matches that of the params
           if (match.params.category !== undefined) {
-            console.log("Running category / industry filter");
             return Object.values(blog.Category).some(value =>
               value
                 .toString()
@@ -138,7 +135,6 @@ class BlogList extends Component {
           // if it is, we convert the opportunities in the blog to a string, and lowercase
           // then check if the array of opportunities includes/matches that of the params
           if (match.params.opportunity !== undefined) {
-            console.log("Running opportunity filter");
             return Object.values(blog.Opportunity).some(value =>
               value
                 .toString()
@@ -154,7 +150,6 @@ class BlogList extends Component {
           // if it is, we convert the categories in the blog to a string, and lowercase
           // then check if the array of categories includes/matches that of the params
           if (match.params.eligibility !== undefined) {
-            console.log("Running eligibility filter");
             return Object.values(blog.Eligibility).some(value =>
               value
                 .toString()
@@ -170,7 +165,6 @@ class BlogList extends Component {
           // if it is, we convert the categories in the blog to a string, and lowercase
           // then check if the array of categories includes/matches that of the params
           if (match.params.age !== undefined) {
-            console.log("Running ages filter");
             return Object.values(blog.Age).some(value =>
               value
                 .toString()
@@ -226,7 +220,7 @@ class BlogList extends Component {
     } = this.props;
 
     return (
-      <>
+      <div>
         <Header match={match} pageTitle="Find an opportunity" />
         <div className="container-wide bg-white pad-30">
           <div className="pure-g justify-between">
@@ -259,7 +253,7 @@ class BlogList extends Component {
             </div>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }
@@ -274,7 +268,7 @@ const mapStateToProps = state => {
     categories: state.blogs.getCategories,
     opportunities: state.blogs.getOpportunities,
     eligibilities: state.blogs.getEligibilities,
-    wwhere: state.blogs.getWhere,
+    where: state.blogs.getWhere,
     date: state.blogs.getDate,
     searchTerm: state.blogs.getSearch,
     visibleResults: state.blogs.getVisibleResults

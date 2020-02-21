@@ -17,8 +17,6 @@ class SkillLevel extends Component {
 
 	handleChange = async (event) => {
 		await this.setState({ selectedSkill: event.target.value });
-		console.log("SELECTED SKILL");
-		console.log(this.state.selectedSkill);
 		return await this.redirectToSkillLevel();
 	}
 
