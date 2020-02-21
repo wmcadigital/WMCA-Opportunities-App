@@ -4,7 +4,7 @@ import DOMPurify from "dompurify";
 
 // import components
 import BtnSecondary from "../buttons/btnSecondary";
-import CategoryTag from "../categoryTag/categoryTag";
+//import CategoryTag from "../categoryTag/categoryTag";
 
 const BlogSummary = ({ blog }) => {
   const { sanitize } = DOMPurify;
