@@ -53,9 +53,6 @@ class IndustryList extends Component {
 	    const categoriesFlatted = categories && categories.flat();
 	    const categoriesNewSet = new Set(categoriesFlatted);
 		const categoriesArray = [...categoriesNewSet];
-		
-		console.log("categories:")
-		console.log(categories)
 
 	    return (
 	      categories &&

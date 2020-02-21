@@ -12,7 +12,6 @@ class postcode extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.renderSearchData = this.renderSearchData.bind(this);
-
   }
 
 
@@ -28,16 +27,7 @@ class postcode extends Component {
     const whereNewSet = new Set(whereFlatted);
     const whereArray = [...whereNewSet];
 
-    /*
-    Hi Dayle this is where I want the data to show. 
-    If you have a look at the eligibility.jsx file  
 
-    */
-
-    console.log('Just trying where now:')
-    console.log(where)
-
-    console.log('where postcode data should be:');
     console.log(whereNewSet);
 
     return (

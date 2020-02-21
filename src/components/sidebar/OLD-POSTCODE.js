@@ -40,10 +40,6 @@ class Postcode extends Component {
         const whereFlatted = where && where.flat();
         const whereNewSet = new Set(whereFlatted);
         const whereArray = [...whereNewSet];
-        console.log('Props:')
-        console.log(where.whereArray);
-        console.log('Where:')
-        console.log(whereNewSet);
 
         return (
             where &&

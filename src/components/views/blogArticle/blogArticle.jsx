@@ -10,7 +10,6 @@ import BlogItem from "../../blogItem/blogItem";
 
 class BlogArticle extends Component {
   componentDidMount() {
-    console.log(this.props);
     window.scrollTo(0, 0);
     // destructure props
     const { fetchBlogs } = this.props;

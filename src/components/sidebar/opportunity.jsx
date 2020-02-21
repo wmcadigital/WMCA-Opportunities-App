@@ -52,13 +52,6 @@ radio_allOpportunity = () => {
     const opportunitiesFlatted = opportunities && opportunities.flat();
     const opportunitiesNewSet = new Set(opportunitiesFlatted);
     const opportunitiesArray = [...opportunitiesNewSet];
-
-
-
-// console.log('This the data: ')
-// console.log(opportunitiesNewSet);
-
-
     return (
       opportunities &&
       opportunitiesArray.map(opportunity => {
