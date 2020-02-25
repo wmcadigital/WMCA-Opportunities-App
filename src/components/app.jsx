@@ -42,6 +42,11 @@ const App = () => {
           />
           <Route
             exact
+            path="/opportunities/age/:age/"
+            component={BlogList}
+          />          
+          <Route
+            exact
             path="/opportunities/api/:article/"
             component={BlogArticle}
           />
