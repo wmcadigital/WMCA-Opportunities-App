@@ -50,12 +50,7 @@ class postcode extends Component {
           />
           </Link>
           
-          {match.params.where === decodedUrl && (
-
-            <div>
-            <h1>dedede</h1>
-            </div>
-            )}
+        
           </div>
         )
       })

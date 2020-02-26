@@ -2,6 +2,7 @@ import React, { Component } from "react";
 //import { Link } from "react-router-dom";
 import SkillLevel from "./skillLevel";
 import Age from "./age";
+import NewAge from './newAge'
 import Postcode from "./postcode";
 import Opportunity from "./opportunity";
 import IndustryList from "./industry";
@@ -19,6 +20,8 @@ class Sidebar extends Component {
 
           <Age match={this.props.match} age={this.props.ages} />
 
+          <NewAge match={this.props.match} age={this.props.age} />
+ 
           <Postcode match={this.props.match} where={this.props.where} />
 
           <Opportunity match={this.props.match} opportunities={this.props.opportunities}/>
@@ -26,6 +29,8 @@ class Sidebar extends Component {
           <IndustryList match={this.props.match} categories={this.props.categories}/>
 
           <Eligibility match={this.props.match} eligibilities={this.props.eligibilities}/>
+
+
 
         </div>
       </div>

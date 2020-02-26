@@ -32,7 +32,7 @@ class BlogArticle extends Component {
 
   render() {
     // destructure props
-    const { match, categories, opportunities, skilllevels, eligibilities, where } = this.props;
+    const { match, categories, opportunities, skilllevels, eligibilities, where, age } = this.props;
 
     return (
       <>
@@ -46,6 +46,7 @@ class BlogArticle extends Component {
                 eligibilities={eligibilities} 
                 where={where}
                 match={match} 
+                age={age} 
               />
             </div>
             <div className="pure-u-1 pure-u-md-5-8">{this.renderArticle()}</div>
@@ -65,6 +66,7 @@ const mapStateToProps = state => {
     opportunities: state.blogs.getOpportunities,
     eligibilities: state.blogs.getEligibilities,
     where: state.blogs.getWhere,
+    age: state.blogs.getAge,
     skilllevels: state.blogs.getSkillLevels,
     date: state.blogs.getDate,
     searchTerm: state.blogs.getSearch

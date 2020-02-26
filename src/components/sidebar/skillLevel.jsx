@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import SkillLevelState from '../../globalState/SkillLevelState'
 // import Select from 'react-select'
 // import { Link } from "react-router-dom";
 
 class SkillLevel extends Component {
+
+	static contextType = SkillLevelState;
 
 	constructor(props) {
 		super(props);
@@ -42,6 +45,8 @@ class SkillLevel extends Component {
 	}
 
 	render() {
+		console.log('Skill Level State Here')
+		console.log(this.context)
 		return (
 			<div>
 				{this.SkillLevelFunction()}

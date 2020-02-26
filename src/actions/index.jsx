@@ -11,7 +11,8 @@ import {
   FETCH_DATE,
   FETCH_SEARCH,
   FETCH_VISIBLERESULTS,
-  FETCH_WHERE
+  FETCH_WHERE,
+  FETCH_AGE
 } from "./types";
 
 // get the protocol and domain name of the url
@@ -49,6 +50,7 @@ export const fetchBlogs = () => {
     dispatch({ type: FETCH_ELIGIBILITIES, payload: response });
     dispatch({ type: FETCH_DATE, payload: response });
     dispatch({ type: FETCH_WHERE, payload: response });
+    dispatch({ type: FETCH_AGE, payload: response });
   };
 };
 

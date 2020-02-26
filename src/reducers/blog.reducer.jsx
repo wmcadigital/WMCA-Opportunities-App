@@ -3,6 +3,7 @@ import {
   FETCH_BLOGS,
   FETCH_ELIGIBILITIES,
   FETCH_WHERE,
+  FETCH_AGE,
   FETCH_SKILLLEVELS,
   FETCH_CATEGORIES,
   FETCH_OPPORTUNITIES,
@@ -18,6 +19,7 @@ const INTIAL_STATE = {
   getCategories: null,
   getOpportunities: null,
   getEligibilities: null,
+  getAge: null,
   getWhere: null,
   getDate: null,
   getSearch: "",
@@ -46,7 +48,7 @@ export default (state = INTIAL_STATE, action) => {
           )
         )
       };
-  
+
     // copy state and then set category state with unique categories from blogs
     case FETCH_CATEGORIES:
       return {
@@ -61,7 +63,7 @@ export default (state = INTIAL_STATE, action) => {
         )
       };
 
-      case FETCH_OPPORTUNITIES:
+    case FETCH_OPPORTUNITIES:
       return {
         ...state,
         getLoading: false,
@@ -74,7 +76,7 @@ export default (state = INTIAL_STATE, action) => {
         )
       };
 
-      case FETCH_WHERE:
+    case FETCH_WHERE:
       return {
         ...state,
         getLoading: false,
@@ -87,7 +89,20 @@ export default (state = INTIAL_STATE, action) => {
         )
       };
 
-      case FETCH_ELIGIBILITIES:
+    case FETCH_AGE:
+      return {
+        ...state,
+        getLoading: false,
+        getAge: Array.from(
+          new Set(
+            state.getBlogs.ChildPages.map(blog => {
+              return blog.Age;
+            })
+          )
+        )
+      };
+
+    case FETCH_ELIGIBILITIES:
       return {
         ...state,
         getLoading: false,

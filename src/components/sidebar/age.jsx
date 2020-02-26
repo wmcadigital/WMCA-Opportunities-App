@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import AgeState from '../../globalState/AgeState';
 
 class Age extends Component {
+
+  static contextType = AgeState;
+
+
   constructor(props) {
     super(props);
 
@@ -24,6 +29,8 @@ class Age extends Component {
 
   
   render() {
+    console.log('age state below:')
+    console.log(this.context);
     return (
       <div className="wmca-form wdgt">
         <label htmlFor="r testadio" className="wmca-form-label">

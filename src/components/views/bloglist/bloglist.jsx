@@ -190,6 +190,23 @@ class BlogList extends Component {
           }
           // just return all the blogs if params category is undefined
           return blog;
+        })
+        .filter(blog => {
+          //AGE
+          // we're looking at the match params to see if category is defined
+          // if it is, we convert the categories in the blog to a string, and lowercase
+          // then check if the array of categories includes/matches that of the params
+          if (match.params.age !== undefined) {
+            console.log("Running Age filter");
+            return Object.values(blog.Age).some(value =>
+              value
+                .toString()
+                .toLowerCase()
+                .includes(match.params.age)
+            );
+          }
+          // just return all the blogs if params category is undefined
+          return blog;
         });
 
     // return the data for the const varible set above in filteredBlogs
@@ -270,6 +287,7 @@ const mapStateToProps = state => {
     eligibilities: state.blogs.getEligibilities,
     where: state.blogs.getWhere,
     date: state.blogs.getDate,
+    age: state.blogs.getAge,
     searchTerm: state.blogs.getSearch,
     visibleResults: state.blogs.getVisibleResults
   };
