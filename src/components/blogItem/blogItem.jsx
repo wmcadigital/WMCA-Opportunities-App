@@ -1,7 +1,5 @@
-
-import React, { Component } from "react";
-import DOMPurify from "dompurify";
-import CategoryTag from "../categoryTag/categoryTag";
+import React, { Component } from 'react';
+import CategoryTag from '../categoryTag/categoryTag';
 
 class BlogItem extends Component {
     videoIframe() {
@@ -14,15 +12,18 @@ class BlogItem extends Component {
         const videoPath = videoUrl.pathname;
         // retrieve search term if youtube link is taken from the address bar
         // replace the start so we're left with a forward slash
-        const videoSearchPath = videoUrl.search.replace("?v=", "/");
+        const videoSearchPath = videoUrl.search.replace('?v=', '/');
 
         // if the host name of the url is youtube then we want to render our iframe
         // with our youtube attritubes
-        if (videoUrl.host === "youtu.be" || videoUrl.host === "www.youtube.com") {
+        if (
+            videoUrl.host === 'youtu.be' ||
+            videoUrl.host === 'www.youtube.com'
+        ) {
             // check if the link is youtu.be, this determines which const variable
             // (set above) we'll use as our src url
             const videoSrc =
-                videoUrl.host !== "youtu.be"
+                videoUrl.host !== 'youtu.be'
                     ? `https://www.youtube.com/embed${videoSearchPath}`
                     : `https://www.youtube.com/embed${videoPath}`;
 
@@ -40,7 +41,7 @@ class BlogItem extends Component {
             );
         }
         // if vimeo, then we want to render with our vimeo settings
-        if (videoUrl.host === "vimeo.com") {
+        if (videoUrl.host === 'vimeo.com') {
             return (
                 <div className="iframe-container wdgt">
                     <iframe
@@ -62,23 +63,19 @@ class BlogItem extends Component {
     render() {
         // destructure props
         const { article } = this.props;
-        const { sanitize } = DOMPurify;
 
         // get published date parse the string and set variables for day,
         // month and year to customise date layout
         const parsedDate = Date.parse(article.PubDate);
-        const pubDateday = new Intl.DateTimeFormat("en-GB", {
-            day: "2-digit"
+        const pubDateday = new Intl.DateTimeFormat('en-GB', {
+            day: '2-digit'
         }).format(parsedDate);
-        const pubDateMonth = new Intl.DateTimeFormat("en-GB", {
-            month: "long"
+        const pubDateMonth = new Intl.DateTimeFormat('en-GB', {
+            month: 'long'
         }).format(parsedDate);
-        const pubDateYear = new Intl.DateTimeFormat("en-GB", {
-            year: "numeric"
+        const pubDateYear = new Intl.DateTimeFormat('en-GB', {
+            year: 'numeric'
         }).format(parsedDate);
-
-        // store blog copy in const variable
-        const content = article.BlogContent;
 
         return (
             <>
@@ -90,11 +87,6 @@ class BlogItem extends Component {
                     <div className="wdgt">
                         <CategoryTag blog={article} />
                     </div>
-                    {/*  {article.BlogImageBig && !article.VideoUrl && (
-            <img src={article.BlogImageBig} alt="" className="pure-u-1 pure-img wdgt" />
-          )}
-          {article.VideoUrl && this.videoIframe()}
-          <div dangerouslySetInnerHTML={{ __html: sanitize(content) }} /> */}
                 </article>
             </>
         );
