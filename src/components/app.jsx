@@ -4,13 +4,13 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import components
 import BlogList from "./views/bloglist/bloglist";
 import BlogArticle from "./views/blogArticle/blogArticle";
-import indexNew from "./indexNew/indexNew";
+import IndexNew from "./IndexNew/IndexNew"
 
 const App = () => {
   return (
     <>
     <h1>Index New Below:</h1>
-    <indexNew />
+    <IndexNew />
 
 
 
