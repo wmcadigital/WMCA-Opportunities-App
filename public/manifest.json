@@ -1,12 +1,6 @@
 {
-  "name": "West Midlands Combined Authority",
-  "short_name": "WMCA",
-  "start_url": "./App/Opportunities/",
-  "Scope": "./App/Opportunities/",
-  "display": "standalone",
-  "theme_color": "#231f20",
-  "background_color": "#231f20",
-  "description": "We are the twelve local authorities and three Local Enterprise Partnerships working together to move powers from Whitehall to the West Midlands and our locally elected politicians, who know this region best.",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
@@ -14,40 +8,18 @@
       "type": "image/x-icon"
     },
     {
-      "src": "wmca-icon-36x36.png",
-      "sizes": "36x36",
+      "src": "logo192.png",
       "type": "image/png",
-      "density": "0.75"
+      "sizes": "192x192"
     },
     {
-      "src": "wmca-icon-48x48.png",
-      "sizes": "48x48",
+      "src": "logo512.png",
       "type": "image/png",
-      "density": "1.0"
-    },
-    {
-      "src": "wmca-icon-72x72.png",
-      "sizes": "72x72",
-      "type": "image/png",
-      "density": "1.5"
-    },
-    {
-      "src": "wmca-icon-96x96.png",
-      "sizes": "96x96",
-      "type": "image/png",
-      "density": "2.0"
-    },
-    {
-      "src": "wmca-icon-144x144.png",
-      "sizes": "144x144",
-      "type": "image/png",
-      "density": "3.0"
-    },
-    {
-      "src": "wmca-icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "density": "4.0"
+      "sizes": "512x512"
     }
-  ]
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }
