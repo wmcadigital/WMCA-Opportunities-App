@@ -1,45 +1,268 @@
-/* eslint-disable prettier/prettier */
+
 import React, { Component } from 'react';
-import axios from 'axios';
 
 
 
-export class indexNew extends Component {
+
+export class IndexNew extends Component {
 
     constructor(){
         super()
 
 
         this.state = {
-            data: []
+            data: [
+                {
+                    "Id": 1681,
+                    "Name": "Construction Gateways",
+                    "Url": "/what-we-do/productivity-and-skills/find-an-opportunity/construction-gateway/",
+                    "PubDate": "2020-01-27T10:53:12.66Z",
+                    "Opportunity": [
+                        "Apprenticeships"
+                    ],
+                    "Category": [
+                        "Construction"
+                    ],
+                    "Eligibility": [
+                        "Part Time",
+                        "Employed"
+                    ],
+                    "BlogContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis blandit justo, in commodo libero. Vivamus nunc justo, congue in semper in, aliquam sit amet nisl. Suspendisse porttitor efficitur porttitor. Duis cursus maximus quam nec condimentum. Curabitur fringilla nulla non sapien tincidunt vulputate. Aenean pulvinar ornare orci, vel accumsan sem tempor at. Proin accumsan orci ipsum, eu finibus elit ultricies at. Integer interdum ante eget risus rhoncus, non vulputate odio venenatis. In pharetra diam tellus, non tincidunt mi imperdiet eget.  Integer interdum ante eget risus rhoncus.",
+                    "VideoUrl": null,
+                    "BlogImageSmall": "http://placeimg.com/600/432",
+                    "BlogImageBig": "http://placeimg.com/950/350",
+                    "SkillLevel": "Advanced",
+                    "Where": [
+                        "Dudley College, DY1 2HG"
+                    ],
+                    "LiveIn": "West Midlands county",
+                    "Age": "16 or older",
+                    "DateFrom": "2020-01-08T00:00:00",
+                    "DateTo": "2020-03-26T00:00:00"
+                },
+                {
+                    "Id": 1682,
+                    "Name": "Digital Hub",
+                    "Url": "/what-we-do/productivity-and-skills/find-an-opportunity/digital-hub/",
+                    "PubDate": "2020-01-27T10:54:37.893Z",
+                    "Opportunity": [
+                        "Training Schemes"
+                    ],
+                    "Category": [
+                        "Digital"
+                    ],
+                    "Eligibility": [
+                        "Unemployed"
+                    ],
+                    "BlogContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis blandit justo, in commodo libero. Vivamus nunc justo, congue in semper in, aliquam sit amet nisl. Suspendisse porttitor efficitur porttitor. Duis cursus maximus quam nec condimentum. Curabitur fringilla nulla non sapien tincidunt vulputate. Aenean pulvinar ornare orci, vel accumsan sem tempor at. Proin accumsan orci ipsum, eu finibus elit ultricies at. Integer interdum ante eget risus rhoncus, non vulputate odio venenatis. In pharetra diam tellus, non tincidunt mi imperdiet eget.  Integer interdum ante eget risus rhoncus.",
+                    "VideoUrl": null,
+                    "BlogImageSmall": "http://placeimg.com/600/432",
+                    "BlogImageBig": "http://placeimg.com/950/350",
+                    "SkillLevel": "Intermediate",
+                    "Where": "Dudley College, DY1 2HH",
+                    "LiveIn": "Wolverhampton",
+                    "Age": "16 or older",
+                    "DateFrom": "2020-01-24T00:00:00",
+                    "DateTo": "2020-06-19T00:00:00"
+                },
+                {
+                    "Id": 1683,
+                    "Name": "Opportunity 2",
+                    "Url": "/what-we-do/productivity-and-skills/find-an-opportunity/opportunity-2/",
+                    "PubDate": "2020-01-27T10:55:53.627Z",
+                    "Opportunity": [
+                        "Work Placements"
+                    ],
+                    "Category": [
+                        "Automotive"
+                    ],
+                    "Eligibility": [
+                        "Unemployed"
+                    ],
+                    "BlogContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis blandit justo, in commodo libero. Vivamus nunc justo, congue in semper in, aliquam sit amet nisl. Suspendisse porttitor efficitur porttitor. Duis cursus maximus quam nec condimentum. Curabitur fringilla nulla non sapien tincidunt vulputate. Aenean pulvinar ornare orci, vel accumsan sem tempor at. Proin accumsan orci ipsum, eu finibus elit ultricies at. Integer interdum ante eget risus rhoncus, non vulputate odio venenatis. In pharetra diam tellus, non tincidunt mi imperdiet eget.  Integer interdum ante eget risus rhoncus.",
+                    "VideoUrl": null,
+                    "BlogImageSmall": "http://placeimg.com/600/432",
+                    "BlogImageBig": "http://placeimg.com/950/350",
+                    "SkillLevel": "Advanced",
+                    "Where": "Birmingham",
+                    "LiveIn": "West Midlands",
+                    "Age": "16 or older",
+                    "DateFrom": "2020-01-15T00:00:00",
+                    "DateTo": "2020-07-17T00:00:00"
+                },
+                {
+                    "Id": 1684,
+                    "Name": "Opportunity 3",
+                    "Url": "/what-we-do/productivity-and-skills/find-an-opportunity/opportunity-3/",
+                    "PubDate": "2020-01-27T10:59:10.717Z",
+                    "Opportunity": [
+                        "Training Schemes",
+                        "Work Placements"
+                    ],
+                    "Category": [
+                        "Automotive"
+                    ],
+                    "Eligibility": [
+                        "Part Time"
+                    ],
+                    "BlogContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis blandit justo, in commodo libero. Vivamus nunc justo, congue in semper in, aliquam sit amet nisl. Suspendisse porttitor efficitur porttitor. Duis cursus maximus quam nec condimentum. Curabitur fringilla nulla non sapien tincidunt vulputate. Aenean pulvinar ornare orci, vel accumsan sem tempor at. Proin accumsan orci ipsum, eu finibus elit ultricies at. Integer interdum ante eget risus rhoncus, non vulputate odio venenatis. In pharetra diam tellus, non tincidunt mi imperdiet eget.  Integer interdum ante eget risus rhoncus.",
+                    "VideoUrl": null,
+                    "BlogImageSmall": "http://placeimg.com/600/432",
+                    "BlogImageBig": "http://placeimg.com/950/350",
+                    "SkillLevel": "Beginner",
+                    "Where": "Coventry",
+                    "LiveIn": "Coventry",
+                    "Age": "16 or older",
+                    "DateFrom": "2020-01-01T00:00:00",
+                    "DateTo": "2020-06-11T00:00:00"
+                },
+                {
+                    "Id": 1685,
+                    "Name": "Opportunity 4",
+                    "Url": "/what-we-do/productivity-and-skills/find-an-opportunity/opportunity-4/",
+                    "PubDate": "2020-01-27T11:00:27.61Z",
+                    "Opportunity": [
+                        "Work Placements"
+                    ],
+                    "Category": [
+                        "Construction"
+                    ],
+                    "Eligibility": [
+                        "Part Time",
+                        "Unemployed"
+                    ],
+                    "BlogContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis blandit justo, in commodo libero. Vivamus nunc justo, congue in semper in, aliquam sit amet nisl. Suspendisse porttitor efficitur porttitor. Duis cursus maximus quam nec condimentum. Curabitur fringilla nulla non sapien tincidunt vulputate. Aenean pulvinar ornare orci, vel accumsan sem tempor at. Proin accumsan orci ipsum, eu finibus elit ultricies at. Integer interdum ante eget risus rhoncus, non vulputate odio venenatis. In pharetra diam tellus, non tincidunt mi imperdiet eget.  Integer interdum ante eget risus rhoncus.",
+                    "VideoUrl": null,
+                    "BlogImageSmall": "http://placeimg.com/600/432",
+                    "BlogImageBig": "http://placeimg.com/950/350",
+                    "SkillLevel": "Beginner",
+                    "Where": "Solihull",
+                    "LiveIn": "Solihull",
+                    "Age": "18 or older",
+                    "DateFrom": "2020-03-06T00:00:00",
+                    "DateTo": "2020-11-25T00:00:00"
+                },
+                {
+                    "Id": 16853,
+                    "Name": "Opportunity 4",
+                    "Url": "/what-we-do/productivity-and-skills/find-an-opportunity/opportunity-4/",
+                    "PubDate": "2020-01-27T11:00:27.61Z",
+                    "Opportunity": [
+                        "Work Placements"
+                    ],
+                    "Category": [
+                        "Construction"
+                    ],
+                    "Eligibility": [
+                        "Part Time",
+                        "Unemployed"
+                    ],
+                    "BlogContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis blandit justo, in commodo libero. Vivamus nunc justo, congue in semper in, aliquam sit amet nisl. Suspendisse porttitor efficitur porttitor. Duis cursus maximus quam nec condimentum. Curabitur fringilla nulla non sapien tincidunt vulputate. Aenean pulvinar ornare orci, vel accumsan sem tempor at. Proin accumsan orci ipsum, eu finibus elit ultricies at. Integer interdum ante eget risus rhoncus, non vulputate odio venenatis. In pharetra diam tellus, non tincidunt mi imperdiet eget.  Integer interdum ante eget risus rhoncus.",
+                    "VideoUrl": null,
+                    "BlogImageSmall": "http://placeimg.com/600/432",
+                    "BlogImageBig": "http://placeimg.com/950/350",
+                    "SkillLevel": "Beginner",
+                    "Where": "Solihull",
+                    "LiveIn": "Solihull",
+                    "Age": "18 or older",
+                    "DateFrom": "2020-03-06T00:00:00",
+                    "DateTo": "2020-11-25T00:00:00"
+                },
+                {
+                    "Id": 1686,
+                    "Name": "Opportunity 5",
+                    "Url": "/what-we-do/productivity-and-skills/find-an-opportunity/opportunity-5/",
+                    "PubDate": "2020-01-27T11:01:30.097Z",
+                    "Opportunity": [
+                        "Apprenticeships"
+                    ],
+                    "Category": [
+                        "Digital"
+                    ],
+                    "Eligibility": [
+                        "Unemployed",
+                        "Part Time"
+                    ],
+                    "BlogContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis blandit justo, in commodo libero. Vivamus nunc justo, congue in semper in, aliquam sit amet nisl. Suspendisse porttitor efficitur porttitor. Duis cursus maximus quam nec condimentum. Curabitur fringilla nulla non sapien tincidunt vulputate. Aenean pulvinar ornare orci, vel accumsan sem tempor at. Proin accumsan orci ipsum, eu finibus elit ultricies at. Integer interdum ante eget risus rhoncus, non vulputate odio venenatis. In pharetra diam tellus, non tincidunt mi imperdiet eget.  Integer interdum ante eget risus rhoncus.",
+                    "VideoUrl": null,
+                    "BlogImageSmall": "http://placeimg.com/600/432",
+                    "BlogImageBig": "http://placeimg.com/950/350",
+                    "SkillLevel": "Intermediate",
+                    "Where": "Walsall",
+                    "LiveIn": "Walsall",
+                    "Age": "18 or older",
+                    "DateFrom": "2020-01-16T00:00:00",
+                    "DateTo": "2020-04-14T00:00:00"
+                },
+                {
+                    "Id": 1699,
+                    "Name": "New Opportunity",
+                    "Url": "/what-we-do/productivity-and-skills/find-an-opportunity/opportunity-4/",
+                    "PubDate": "2020-01-27T11:00:27.61Z",
+                    "Opportunity": [
+                        "Work Placements"
+                    ],
+                    "Category": [
+                        "Construction",
+                        "Health Care",
+                        "Traffic Management"
+                    ],
+                    "Eligibility": [
+                        "Contract",
+                        "Freelance",
+                        "Part Time",
+                        "Unemployed"
+                    ],
+                    "BlogContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis blandit justo, in commodo libero. Vivamus nunc justo, congue in semper in, aliquam sit amet nisl. Suspendisse porttitor efficitur porttitor. Duis cursus maximus quam nec condimentum. Curabitur fringilla nulla non sapien tincidunt vulputate. Aenean pulvinar ornare orci, vel accumsan sem tempor at. Proin accumsan orci ipsum, eu finibus elit ultricies at. Integer interdum ante eget risus rhoncus, non vulputate odio venenatis. In pharetra diam tellus, non tincidunt mi imperdiet eget.  Integer interdum ante eget risus rhoncus.",
+                    "VideoUrl": null,
+                    "BlogImageSmall": "http://placeimg.com/600/432",
+                    "BlogImageBig": "http://placeimg.com/950/350",
+                    "SkillLevel": "Beginner",
+                    "Where": "Solihull",
+                    "LiveIn": "Solihull",
+                    "Age": "18 or older",
+                    "DateFrom": "2020-03-06T00:00:00",
+                    "DateTo": "2022-08-14T00:00:00"
+                }
+            ]
         }
     }
 
-componentDidMount(){
-    
-    axios.get('https://raw.githubusercontent.com/wmcadigital/WMCA-Opportunities-App/SetUp0.0.8/public/todeleteopportunities.json')
-    .then(res => {
-      const data = res.data;
-      this.setState({ data });
-    })
-    console.log(data);
 
     
-
-}
 
 
 
 
     render() {
+
+        const info = this.state;
+
+        const content = info.data.map((post) =>
+            <div key={post.Id}>
+                <h3>{post.Id}</h3>
+                <h3>{post.Name}</h3>
+                <p>{post.SkillLevel}</p>
+                <p>{post.Where}</p>
+                <p>{post.Age}</p>
+                <p>{post.Opportunity}</p>
+                <p>{post.Category}</p>
+                <p>{post.Eligibility}</p>
+                <img src="{post.BlogImageSmall}" />
+            </div>
+        );
+
+
+        
         return (
             <div>
+            <h1>Test Data</h1>
                  <ul>
-                    { this.state.data.map(data => <li>{data.id}</li>)}
+                    <li>{content}</li>
                 </ul>
             </div>
         )
     }
 }
 
-export default indexNew
+export default IndexNew;
