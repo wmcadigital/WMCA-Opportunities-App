@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import x from '../fakeOpps.js';
 
 export class Results extends Component {
   constructor(props) {
@@ -12,10 +13,10 @@ export class Results extends Component {
   }
 
   componentDidMount() {
-    const data = require("../fakeOpps.json");
+    const data = x;
+
     this.setState({ data });
 
-    console.log("data comp did mount below:");
     console.log(data);
   }
 
@@ -23,30 +24,12 @@ export class Results extends Component {
     this.setState({ Opportunity: event.target.value });
   };
 
-  //Get the data for opportunies
-  getUnique(arr, comp) {
-    const unique = arr
-      //store the comparison values in array
-      .map(e => e[comp])
-
-      // store the keys of the unique objects
-      .map((e, i, final) => final.indexOf(e) === i && i)
-
-      // eliminate the dead keys & store unique objects
-      .filter(e => arr[e])
-
-      .map(e => arr[e]);
-
-    return unique;
-  }
-
   render() {
-    const Opportunity = this.getUnique(this.state.data, "Opportunity");
-    const SkillLevel = this.getUnique(this.state.data, "SkillLevel");
-    const Category = this.getUnique(this.state.data, "Category");
+    this.state.data = info;
 
-    console.log(" opp below:");
-    console.log(Opportunity);
+    const Opportunity = this.getUnique(info.data, 'Opportunity');
+    const SkillLevel = this.getUnique(info.data, 'SkillLevel');
+    const Category = this.getUnique(info.data, 'Category');
 
     const data = this.state.data;
 
@@ -54,7 +37,7 @@ export class Results extends Component {
       return result.Opportunity === data;
     });
 
-    console.log("fil");
+    console.log('fil');
     console.log(filterDropdown);
 
     return (
@@ -125,7 +108,7 @@ export class Results extends Component {
         <div>
           <h1>Looped Data Here - Nothing showing?</h1>
           {filterDropdown.map(data => (
-            <div key={data.Id} style={{ margin: "10px" }}>
+            <div key={data.Id} style={{ margin: '10px' }}>
               {data.Opportunity}
               <br />
             </div>
@@ -137,8 +120,7 @@ export class Results extends Component {
               <li key={data.Id}>
                 <span className="highlight">Where it is:</span> {data.Where}
                 <br />
-                <span className="highlight">You need to live in:</span>{" "}
-                {data.LiveIn}
+                <span className="highlight">You need to live in:</span> {data.LiveIn}
                 <br />
                 <span className="highlight">You must be:</span> {data.Age}
                 <br />

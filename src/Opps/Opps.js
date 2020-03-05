@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class Opportunity extends Component {
   constructor(props) {
@@ -13,10 +13,10 @@ class Opportunity extends Component {
   }
 
   componentDidMount() {
-    const data = require("../fakeOpps.json");
+    const data = require('../fakeOpps.json');
     this.setState({ data: data });
 
-    console.log("Opps data Below:");
+    console.log('Opps data Below:');
     console.log(data);
   }
 
@@ -54,7 +54,7 @@ class Opportunity extends Component {
     const opportunitiesFlatted = opportunities && opportunities.flat();
     const opportunitiesNewSet = new Set(opportunitiesFlatted);
     const opportunitiesArray = [...opportunitiesNewSet];
-    console.log("opportunitiesArray");
+    console.log('opportunitiesArray');
     console.log(opportunitiesFlatted);
     return (
       opportunities &&
@@ -74,12 +74,7 @@ class Opportunity extends Component {
                 defaultChecked
               />
 
-              <input
-                type="radio"
-                name="radio"
-                id={opportunity}
-                value={opportunity}
-              />
+              <input type="radio" name="radio" id={opportunity} value={opportunity} />
 
               <span className="wmca-form__radio-checkmark"> </span>
             </span>
