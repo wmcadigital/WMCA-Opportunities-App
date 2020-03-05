@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header/Header'
 import SideBarFilter from './SideBarFilter/SideBarFilter';
 import Results from './Results/Results';
+import Opps from './Opps/Opps'
 
 function App() {
   return (
@@ -17,6 +18,10 @@ function App() {
               
           <div className="pure-u-1 pure-u-md-5-8" id="stories">
             <Results />
+
+            <h1>Opps Below:</h1>
+            <Opps />
+            
           </div>
             
           </div>  
