@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 export class Results extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             data: []
@@ -44,7 +44,6 @@ export class Results extends Component {
         const Opportunity = this.getUnique(this.state.data, "Opportunity");
         const SkillLevel = this.getUnique(this.state.data, "SkillLevel");
         const Category = this.getUnique(this.state.data, "Category");
-        const Age = this.getUnique(this.state.data, "Age");
 
         console.log(" opp below:");
         console.log(Opportunity);
@@ -92,42 +91,40 @@ export class Results extends Component {
                         ))}
                     </select>
                 </label>
+                <h1>Test</h1>
 
+                {Category.map(data => (
+                    <div>
+                        <span className="wmca-form__radio">
+                            <label className="wmca-form__radio-label">{data.Category}</label>
+                        <input
+                            type="radio"
+                            name="radio"
+                            className="wmca-form__radio-checkmark"
+                            id={data.Category}
+                            value={data.Category}
+                        />
+                        </span>
+                        
+                    </div>
+                ))}
+
+                <br />
+                <br />
+                <br />
                 <label>
-                    <p>Age</p>
+                    <p>Category / Radio</p>
                     <select value={this.state.data} onChange={this.handleChangeCourse}>
-                        {Age.map(data => (
-                            <option key={data.Id} value={data.Age}>
-                                {data.Age}
+                        {Category.map(data => (
+                            <option key={data.Id} value={data.Category}>
+                                {data.Category}
                             </option>
                         ))}
                     </select>
                 </label>
-
-
-                <label>
-                    <p>Age</p>
-                                
-
-
-
-                    <select value={this.state.data} onChange={this.handleChangeCourse}>
-                        {Age.map(data => (
-                            <option key={data.Id} value={data.Age}>
-                                {data.Age}
-                            </option>
-                        ))}
-                    </select>
-                </label>
-
-
-
-
-
-
 
                 <div>
-                    <h1>Looped Data Here</h1>
+                    <h1>Looped Data Here - Nothing showing?</h1>
                     {filterDropdown.map(data => (
                         <div key={data.Id} style={{ margin: "10px" }}>
                             {data.Opportunity}
@@ -135,11 +132,37 @@ export class Results extends Component {
                         </div>
                     ))}
 
+
+
+<h1>Data Here:</h1>
                     {Opportunity.map(data => (
-                        <option key={data.Id} value={data.Opportunity}>
-                            {data.Opportunity}
-                            {data.Id}
-                        </option>
+
+
+                        <ul>
+                            <li key={data.Id}>
+                                <span className="highlight">Where it is:</span> {data.Where}<br />
+                                <span className="highlight">You need to live in:</span> {data.LiveIn}<br />
+                                <span className="highlight">You must be:</span> {data.Age}<br />
+                                <span className="highlight">{data.Opportunity}</span><br />
+                                <span className="highlight">{data.Id}</span><br />
+
+
+                                <h5>Desc:</h5>
+
+                                <p>{data.BlogContent}</p>
+                            </li>
+                        </ul>
+                        
+
+
+
+
+                        
+
+
+
+                            
+
                     ))}
                 </div>
             </div>
