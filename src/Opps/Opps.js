@@ -8,26 +8,24 @@ class Opportunity extends Component {
       data: []
     };
 
-    this.radio_eachOpportunity = this.radio_eachOpportunity.bind(this);
-    this.radio_allOpportunity = this.radio_allOpportunity.bind(this);
+    this.radioEachOpportunity = this.radioEachOpportunity.bind(this);
+    this.radioAllOpportunity = this.radioAllOpportunity.bind(this);
   }
 
   componentDidMount() {
+    // eslint-disable-next-line global-require
     const data = require('../fakeOpps.json');
-    this.setState({ data: data });
-
-    console.log('Opps data Below:');
-    console.log(data);
+    this.setState({ data });
   }
 
-  radio_allOpportunity = () => {
+  radioAllOpportunity = () => {
     return (
       <div key="All-Opportunities">
         <span className="wmca-form__radio">
+          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label htmlFor="All Opportunities" className="wmca-form__radio-label">
             All Opportunities
           </label>
-
           <input
             type="radio"
             name="All-Opportunities"
@@ -35,27 +33,27 @@ class Opportunity extends Component {
             value="All Opportunities"
             defaultChecked
           />
-
           <input
             type="radio"
             name="All-Opportunities"
             id="All-Opportunities"
             value="All Opportunities"
           />
-
           <span className="wmca-form__radio-checkmark"> </span>
         </span>
       </div>
     );
   };
 
-  radio_eachOpportunity = () => {
+  radioEachOpportunity = () => {
+    // eslint-disable-next-line react/destructuring-assignment
     const { opportunities } = this.state.data;
+
     const opportunitiesFlatted = opportunities && opportunities.flat();
     const opportunitiesNewSet = new Set(opportunitiesFlatted);
     const opportunitiesArray = [...opportunitiesNewSet];
-    console.log('opportunitiesArray');
-    console.log(opportunitiesFlatted);
+    // console.log('opportunitiesArray');
+    // console.log(opportunitiesFlatted);
     return (
       opportunities &&
       opportunitiesArray.map(opportunity => {
@@ -93,8 +91,8 @@ class Opportunity extends Component {
 
         <div>
           <div className="wmca-form__radio" id="radio">
-            {this.radio_allOpportunity()}
-            {this.radio_eachOpportunity()}
+            {this.radioAllOpportunity()}
+            {this.radioEachOpportunity()}
           </div>
         </div>
       </div>

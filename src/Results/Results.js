@@ -1,4 +1,9 @@
+/* eslint-disable func-names */
+/* eslint-disable no-undef */
+/* eslint-disable react/no-unused-state */
+/* eslint-disable no-console */
 import React, { Component } from 'react';
+// eslint-disable-next-line import/no-unresolved
 import x from '../fakeOpps.js';
 
 export class Results extends Component {
@@ -31,11 +36,26 @@ export class Results extends Component {
     const SkillLevel = this.getUnique(info.data, 'SkillLevel');
     const Category = this.getUnique(info.data, 'Category');
 
-    const data = this.state.data;
+    const { data } = this.state;
 
     const filterDropdown = data.filter(function(result) {
       return result.Opportunity === data;
     });
+
+    const filterItemsArr = data.filter(item => {
+      // eslint-disable-next-line no-self-compare
+      return item.SkillLevel === item.SkillLevel;
+    });
+
+    const nameFilters = data.filter(names => {
+      return names.Opportunity;
+    });
+
+    console.log('nameFilters:');
+    console.log(nameFilters);
+
+    console.log('filterItemsArr below');
+    console.log(filterItemsArr);
 
     console.log('fil');
     console.log(filterDropdown);
