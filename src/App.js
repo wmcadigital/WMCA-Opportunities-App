@@ -1,22 +1,28 @@
 import React, { useEffect, useReducer, useMemo } from 'react';
 import Header from './Header/Header';
 import SideBarFilter from './SideBarFilter/SideBarFilter';
-// import { Results } from './Results/Results';
-import Opps from './Opps/Opps';
+import Results from './Results/ResultsAll';
+// import Opps from './Opps/Opps';
 import data from './fakeOpps.json';
+import getAllFiltersUtil from './utils/getAllFilters';
 import { DispatchContext, StateContext } from './GlobalContex';
 
 function App() {
   let initialFilterStatus = {
-    selected: [],
+    allFilters: [],
     allJobs: [],
     selectedJobs: []
   };
 
   function reducer(state, action) {
     switch (action.type) {
-      case 'addCategories':
+      case 'addCategoriesData':
         return { ...state, allJobs: action.payload };
+      case 'updateFilters':
+        return { ...state,  selectedJobs: action.payload};
+
+      case 'setAllFilters':
+        return { ...state, allFilters: action.payload, selectedJobs: action.payload}
       default:
         throw new Error();
     }
@@ -25,7 +31,10 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialFilterStatus);
 
   useEffect(() => {
-    dispatch({ type: 'addCategories', payload: data });
+    dispatch({ type: 'addCategoriesData', payload: data });
+    getAllFiltersUtil(data).then( (res) => {
+      dispatch({ type: 'setAllFilters', payload: res });
+    });
   }, []);
   const dispatchContex = useMemo(
     () => ({
@@ -50,11 +59,9 @@ function App() {
             <div className="pure-g justify-between">
               <div className="pure-u-1 pure-u-md-1-4">
                 <SideBarFilter />
-                <Opps />
               </div>
               <div className="pure-u-1 pure-u-md-5-8" id="stories">
-                {/* <Results /> */}
-                <h1>Opps Below:</h1>
+                <Results />
               </div>
             </div>
           </div>
