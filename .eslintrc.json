@@ -3,12 +3,7 @@
     "browser": true,
     "es6": true
   },
-  "extends": [
-    "react-app",
-    "airbnb",
-    "plugin:prettier/recommended",
-    "plugin:jsx-a11y/recommended"
-  ],
+  "extends": ["react-app", "airbnb", "plugin:prettier/recommended", "plugin:jsx-a11y/recommended"],
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
@@ -25,12 +20,7 @@
         "wrapperName": ["sanitize"]
       }
     ],
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [".js", ".jsx"]
-      }
-    ],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-curly-newline": 0,
     "react/jsx-one-expression-per-line": 0
   },
