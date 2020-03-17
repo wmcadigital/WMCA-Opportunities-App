@@ -1,4 +1,6 @@
 import React from 'react';
-const GlobalContext = React.createContext(null);
 
-export default GlobalContext;
+ const DispatchContext = React.createContext(null);
+ const StateContext = React.createContext(null);
+
+export {DispatchContext, StateContext};

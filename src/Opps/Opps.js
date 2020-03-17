@@ -16,8 +16,8 @@ class Opportunity extends Component {
   componentDidMount() {
     this.setState({ data });
 
-    console.log('Opps data Below:');
-    console.log(data);
+    // console.log('Opps data Below:');
+    // console.log(data);
   }
 
   radioAllOpportunity = () => {

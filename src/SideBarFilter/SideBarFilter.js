@@ -1,6 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { DispatchContext, StateContext } from '../GlobalContex';
 
 function SideBarFilter() {
+  const dispatch = useContext(DispatchContext);
+  const state = useContext(StateContext)
+
+  console.log(state);
+  console.log(dispatch);
   return (
     <div className="container-wide bg-white pad-30">
       <div className="pure-g justify-between">
