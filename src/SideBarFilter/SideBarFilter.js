@@ -2,10 +2,7 @@ import React from 'react';
 // import { StateContext } from '../GlobalContex';
 import FilterGroup from './FilterGroup';
 
-// import SingleFilter from './SingleFilter';
-
 function SideBarFilter() {
-  // const data = useContext(StateContext);
 
   const sections = ['Opportunity', 'Eligibility', 'Age', 'SkillLevel', 'Category'];
 

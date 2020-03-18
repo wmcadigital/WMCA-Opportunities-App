@@ -8,8 +8,14 @@ import getAllFiltersUtil from './utils/getAllFilters';
 import { DispatchContext, StateContext } from './GlobalContex';
 
 function App() {
+  /* move all this to global reducer */
   let initialFilterStatus = {
     allFilters: [],
+    Opportunity:[], 
+    Eligibility: [], 
+    Age:'', 
+    SkillLevel:'', 
+    Category:[],
     allJobs: [],
     selectedJobs: []
   };
@@ -29,7 +35,7 @@ function App() {
   }
 
   const [state, dispatch] = useReducer(reducer, initialFilterStatus);
-
+  /*  end off move all this to global reducer */
   useEffect(() => {
     dispatch({ type: 'addCategoriesData', payload: data });
     getAllFiltersUtil(data).then( (res) => {

@@ -9,14 +9,10 @@ const FilterGroup = props => {
   const { name } = props;
   const [filters, setFilters] = useState([])
 
-  // getFilterGroup(data.state.allJobs, name).then(res => {
-  //   setFilters(res);
-  // });
-
   useEffect(() => {
     console.log(name);
-    let test = getFilterGroup(data.state.allJobs, name);
-    setFilters(test)
+    let filterList = getFilterGroup(data.state.allJobs, name);
+    setFilters(filterList)
 
   }, [data.state.allJobs, name]);
 
