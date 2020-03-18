@@ -4,7 +4,13 @@ import FilterGroup from './FilterGroup';
 
 function SideBarFilter() {
 
-  const sections = ['Opportunity', 'Eligibility', 'Age', 'SkillLevel', 'Category'];
+  const sections = [
+    'Opportunity', 'Eligibility', 'Age', 'SkillLevel', 'Category'
+  ];
+
+  const sections = [
+    'Opportunity', 'Eligibility', 'Age', 'SkillLevel', 'Category'
+  ];
 
   return (
     <div className="container-wide bg-white pad-30">

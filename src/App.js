@@ -8,16 +8,18 @@ import getAllFiltersUtil from './utils/getAllFilters';
 import { DispatchContext, StateContext } from './GlobalContex';
 
 function App() {
+
   /* move all this to global reducer */
   let initialFilterStatus = {
+    allJobs: [],
+    selectedJobs: [],
     allFilters: [],
     Opportunity:[], 
     Eligibility: [], 
     Age:'', 
     SkillLevel:'', 
-    Category:[],
-    allJobs: [],
-    selectedJobs: []
+    Category:[]
+    
   };
 
   function reducer(state, action) {
@@ -26,6 +28,8 @@ function App() {
         return { ...state, allJobs: action.payload };
       case 'updateFilters':
         return { ...state,  selectedJobs: action.payload};
+      case 'updateSingleFilter':
+        return { ...state, [action.payload.filterName]: action.payload.filter}
 
       case 'setAllFilters':
         return { ...state, allFilters: action.payload, selectedJobs: action.payload}
@@ -36,6 +40,7 @@ function App() {
 
   const [state, dispatch] = useReducer(reducer, initialFilterStatus);
   /*  end off move all this to global reducer */
+
   useEffect(() => {
     dispatch({ type: 'addCategoriesData', payload: data });
     getAllFiltersUtil(data).then( (res) => {

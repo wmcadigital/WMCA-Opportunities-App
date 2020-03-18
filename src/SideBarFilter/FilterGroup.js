@@ -7,22 +7,19 @@ import getFilterGroup from '../utils/getFilterGroup';
 const FilterGroup = props => {
   const data = useContext(StateContext);
   const { name } = props;
-  const [filters, setFilters] = useState([])
+  const [allFilters, setFilters] = useState([]);
+  const [selectedSubdFilters, toggleSubFilters] = useState([]);
 
   useEffect(() => {
-    console.log(name);
-    let filterList = getFilterGroup(data.state.allJobs, name);
-    setFilters(filterList)
-
+    setFilters(getFilterGroup(data.state.allJobs, name));
   }, [data.state.allJobs, name]);
 
   return (
     <div>
-      <h2>{name}</h2>
-      {filters &&
-        filters.map(single => {
-          console.log(single);
-          return <SingleFilter name={single} />;
+      <h2>{name}:</h2>
+      {allFilters &&
+        allFilters.map((single, i) => {
+          return <SingleFilter name={single} parent={name} toggleSubFilters={toggleSubFilters} key={i}/>;
         })}
     </div>
   );
