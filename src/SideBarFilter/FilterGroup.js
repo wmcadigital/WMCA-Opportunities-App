@@ -1,26 +1,18 @@
 import React, { useContext, useState, useEffect } from 'react';
 import SingleFilter from './SingleFilter';
+import SingleFilterElement from './SingleFilterElement';
 import { StateContext } from '../GlobalContex';
 
-import getFilterGroup from '../utils/getFilterGroup';
+
 
 const FilterGroup = props => {
   const data = useContext(StateContext);
-  const { name } = props;
-  const [allFilters, setFilters] = useState([]);
-  const [selectedSubdFilters, toggleSubFilters] = useState([]);
-
-  useEffect(() => {
-    setFilters(getFilterGroup(data.state.allJobs, name));
-  }, [data.state.allJobs, name]);
+  const { title } = props;
 
   return (
     <div>
-      <h2>{name}:</h2>
-      {allFilters &&
-        allFilters.map((single, i) => {
-          return <SingleFilter name={single} parent={name} toggleSubFilters={toggleSubFilters} key={i}/>;
-        })}
+      <h2>{title}:</h2>
+        <SingleFilterElement parent={props} />
     </div>
   );
 };

@@ -2,18 +2,23 @@ import React, { useState, useContext } from 'react';
 import updateFiltersHelper from '../utils/updateFilters';
 import { DispatchContext, StateContext } from '../GlobalContex';
 
+import Checkbox from '../components/inputs/Checkbox'
+import Dropdown from '../components/inputs/Dropdown'
+import InputText from '../components/inputs/InputText'
+
 const Filter = props => {
-  const { name, parent } = props;
+  const { filterName } = props;
+  const { name, type, dataType, title } = props.parent
   const dispatcher = useContext(DispatchContext);
   const filters = useContext(StateContext);
   const [isSelected, setSelected] = useState(true);
   const dispatchType = isSelected ? 'removeFilterElement' : 'addFilterElement';
 
-  const isArray = Array.isArray(filters.state[parent]);
+  const isArray = Array.isArray(filters.state[name]);
 
   function onInputChange() {
     setSelected(!isSelected);
-    updateFiltersHelper(filters.state.selectedJobs, name, dispatchType).then(res => {
+    updateFiltersHelper(filters.state.selectedJobs, filterName, dispatchType).then(res => {
       dispatcher.dispatch({ type: 'updateFilters', payload: res });
     });
     dispatchIt();
@@ -23,34 +28,39 @@ const Filter = props => {
     if(isArray) {
       payloadVal = dispatchArray();
     } else {
-      payloadVal = name;
+      payloadVal = filterName;
     }
     
-
-
     dispatcher.dispatch({
       type:'updateSingleFilter',
       payload: {
-        filterName:parent,
+        filterName:name,
         filter: payloadVal
       }
     })
   }
 
   function dispatchArray() {
-    let arr = filters.state[parent];
-    if ( arr.indexOf(name) < 0) {
-      arr = [...arr, name];
-    } else {
-      arr = arr.filter( el => el !== name )
-    }
+    
 
-    return arr
+    //return arr
+  }
+
+  function getInput() {
+    switch (type) {
+      case 'checkbox':
+       return <Checkbox filterName={filterName} {...props.parent} />
+      case 'dropdown' :
+        return <Dropdown filterName={filterName} {...props.parent} />
+      default:
+        throw new Error();
+ 
+    }
   }
 
   return (
     <div>
-      <label htmlFor={name}>{name}</label>
+      {/* <label htmlFor={filterName}>{filterName}</label>
       <input
         type="checkbox"
         value={name}
@@ -58,7 +68,8 @@ const Filter = props => {
         onChange={() => {
           onInputChange();
         }}
-      />
+      /> */}
+      {getInput()}
     </div>
   );
 };

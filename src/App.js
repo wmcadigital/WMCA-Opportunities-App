@@ -5,13 +5,17 @@ import Results from './Results/ResultsAll';
 // import Opps from './Opps/Opps';
 import data from './fakeOpps.json';
 import getAllFiltersUtil from './utils/getAllFilters';
+import getAllFiltersForId from './utils/getAllFiltersForId'
 import { DispatchContext, StateContext } from './GlobalContex';
+
+
 
 function App() {
 
   /* move all this to global reducer */
   let initialFilterStatus = {
-    allJobs: [],
+    allJobs: data,
+    filterKeysForId:{},
     selectedJobs: [],
     allFilters: [],
     Opportunity:[], 
@@ -22,6 +26,8 @@ function App() {
     
   };
 
+  
+
   function reducer(state, action) {
     switch (action.type) {
       case 'addCategoriesData':
@@ -30,9 +36,10 @@ function App() {
         return { ...state,  selectedJobs: action.payload};
       case 'updateSingleFilter':
         return { ...state, [action.payload.filterName]: action.payload.filter}
-
+      case 'setFiltersForId':
+        return { ...state, filterKeysForId: action.payload}
       case 'setAllFilters':
-        return { ...state, allFilters: action.payload, selectedJobs: action.payload}
+        return { ...state, allFilters: action.payload}
       default:
         throw new Error();
     }
@@ -42,10 +49,10 @@ function App() {
   /*  end off move all this to global reducer */
 
   useEffect(() => {
-    dispatch({ type: 'addCategoriesData', payload: data });
-    getAllFiltersUtil(data).then( (res) => {
-      dispatch({ type: 'setAllFilters', payload: res });
+    getAllFiltersForId(data).then((res)=> {
+      dispatch({ type: 'setFiltersForId', payload: res });
     });
+
   }, []);
   const dispatchContex = useMemo(
     () => ({

@@ -8,18 +8,48 @@ function SideBarFilter() {
     'Opportunity', 'Eligibility', 'Age', 'SkillLevel', 'Category'
   ];
 
-  const sections = [
-    'Opportunity', 'Eligibility', 'Age', 'SkillLevel', 'Category'
+  const sectionsConfig = [
+    {
+      name: 'SkillLevel',
+      type: 'dropdown',
+      dataType: 'string',
+      title: 'Skill level'
+    },
+    {
+      name: 'Opportunity',
+      type: 'checkbox',
+      dataType: 'array',
+      title: 'Opportunity'
+    },
+    {
+      name: 'Category',
+      type: 'checkbox',
+      dataType: 'array',
+      title: 'Industry'
+    },
+    {
+      name: 'Eligibility',
+      type: 'checkbox',
+      dataType: 'array',
+      title: 'Are you currently employed?'
+    },
+    {
+      name: 'Age',
+      type: 'dropdown',
+      dataType: 'string',
+      title: 'Age'
+    },
+    
   ];
 
   return (
     <div className="container-wide bg-white pad-30">
       <div className="pure-g justify-between">
-        <div className="pure-u-1 pure-u-md-1-4">
+        <div className="pure-u-1">
           <h2>Filter</h2>
-          {sections &&
-            sections.map((filter, i) => {
-              return <FilterGroup name={filter} key={i} />;
+          {sectionsConfig &&
+            sectionsConfig.map((filter, i) => {
+              return <FilterGroup {...filter} key={i} />;
             })}
         </div>
       </div>
