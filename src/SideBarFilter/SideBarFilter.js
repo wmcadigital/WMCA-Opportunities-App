@@ -4,10 +4,6 @@ import FilterGroup from './FilterGroup';
 
 function SideBarFilter() {
 
-  const sections = [
-    'Opportunity', 'Eligibility', 'Age', 'SkillLevel', 'Category'
-  ];
-
   const sectionsConfig = [
     {
       name: 'SkillLevel',

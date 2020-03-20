@@ -1,17 +1,14 @@
-import React, { useContext, useState, useEffect } from 'react';
-import SingleFilter from './SingleFilter';
+import React from 'react';
 import SingleFilterElement from './SingleFilterElement';
-import { StateContext } from '../GlobalContex';
-
-
 
 const FilterGroup = props => {
-  const data = useContext(StateContext);
   const { title } = props;
 
   return (
-    <div>
-      <h2>{title}:</h2>
+    <div className="wmca-form wdgt">
+      <label className="wmca-form-label">
+      {title}:
+      </label>
         <SingleFilterElement parent={props} />
     </div>
   );

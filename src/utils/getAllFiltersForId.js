@@ -4,10 +4,8 @@ const getAllFiltersForId = async (data) => {
   const allFitersWithId = {};
 
   data.forEach(el => {
-    allFitersWithId[el.Id.toString()] = getAllFilters([el]);
+    allFitersWithId[el.Id] = getAllFilters([el]);
   });
-
-  console.log(allFitersWithId);
 
   return allFitersWithId
 }

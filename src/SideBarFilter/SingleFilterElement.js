@@ -1,11 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
-import updateFiltersHelper from '../utils/updateFilters';
-import { DispatchContext, StateContext } from '../GlobalContex';
+import { StateContext } from '../GlobalContex';
 import getFilterGroup from '../utils/getFilterGroup';
 
 import CheckboxGroup from '../components/inputs/CheckboxGroup'
 import Dropdown from '../components/inputs/Dropdown'
-import InputText from '../components/inputs/InputText'
 
 
 const SingleFilter = props => {

@@ -2,32 +2,22 @@ import React, { useState, useContext } from 'react';
 import { DispatchContext, StateContext } from '../../GlobalContex';
 
 function DropDown(props) {
+  const  DEFAULT = 'select'
   const { selectValue, parent } = props;
   const [selectedValue, setSelected] = useState('select');
   const filters = useContext(StateContext);
   const dispatcher = useContext(DispatchContext);
-
-  const { filterName } = props;
+  let arr = filters.state.selectedJobs;
 
   function onSlectedChange(e) {
+    arr = arr.filter( el => el !== selectedValue )
     setSelected(e.target.value);
-
-    console.log(e.target.value);
     updateReducer(e.target.value);
   }
 
-  // function updateReducer(value) {
-  //   dispatcher.dispatch({
-  //     type: 'updateSingleFilter',
-  //     payload: {
-  //       filterName: parent,
-  //       filter: value
-  //     }
-  //   });
-  // }
   function updateReducer(name) {
-    let arr = filters.state.selectedJobs;
-    if ( arr.indexOf(name) < 0) {
+    
+    if ( arr.indexOf(name) < 0 && name !== DEFAULT) {
       arr = [...arr, name];
     } else {
       arr = arr.filter( el => el !== name )
@@ -49,7 +39,7 @@ function DropDown(props) {
             onSlectedChange(e);
           }}
         >
-          <option value="select">
+          <option value={DEFAULT}>
             Select
           </option>
           {selectValue &&
@@ -60,7 +50,7 @@ function DropDown(props) {
                     onSlectedChange(e);
                   }}
                   value={select}
-                  key={`${select[0]}_${i}`}
+                  key={`selectt_${i}`}
                 >
                   {select}
                 </option>
