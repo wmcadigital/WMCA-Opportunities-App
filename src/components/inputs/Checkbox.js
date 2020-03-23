@@ -2,8 +2,8 @@ import React, { useState, useContext } from 'react';
 import { DispatchContext, StateContext } from '../../GlobalContex';
 
 function Checkbox(props) {
-  const { name } = props;
-  const [isSelected, toggleSelected] = useState(false);
+  const { name, parent } = props;
+  const [isSelected, toggleSelected] = useState();
   const filters = useContext(StateContext);
   const dispatcher = useContext(DispatchContext);
 
@@ -25,11 +25,10 @@ function Checkbox(props) {
       payload: arr
     });
   }
-
   return (
     <div className="wmca-form">
       <span className="wmca-form__checkboxes pure-u-1">
-        <label htmlFor={name} className="wmca-form__checkboxes-label">
+        <label htmlFor={`${name}_${parent}`} className="wmca-form__checkboxes-label">
           {name}
           <input
             type="checkbox"
@@ -38,7 +37,7 @@ function Checkbox(props) {
             onChange={() => {
               onInputChange();
             }}
-            id={name}
+            id={`${name}_${parent}`}
           />
           <span className="wmca-form__checkboxes-checkmark"> </span>
         </label>
