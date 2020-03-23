@@ -7,7 +7,7 @@ function CheckboxGroup(props) {
   return (
     <div>
     {checkboxValue && checkboxValue.map((checkBox, i) => {
-       return (<Checkbox key={i} name={checkBox} parent={parent}/>) 
+       return (<Checkbox key={`${parent}_${i}`} name={checkBox} parent={parent}/>) 
     })}
     </div>
   )

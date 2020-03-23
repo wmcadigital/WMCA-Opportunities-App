@@ -45,7 +45,7 @@ function SideBarFilter() {
           <h2>Filter</h2>
           {sectionsConfig &&
             sectionsConfig.map((filter, i) => {
-              return <FilterGroup {...filter} key={i} />;
+              return <FilterGroup {...filter} key={`${filter.name}_${i}`} />;
             })}
         </div>
       </div>

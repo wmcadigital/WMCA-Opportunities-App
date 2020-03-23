@@ -35,13 +35,14 @@ const ResultsFiltered = () => {
 
   return (
     <div>
-      <h4>{idsToDisplay.length}</h4>
+      <h2>{idsToDisplay.length} results</h2>
       {allJobs && idsToDisplay.length > 0 &&
         allJobs.map((single, i) => {
           if (idsToDisplay.indexOf(single.Id.toString()) > -1) {
-            return <SingleResult {...single} key={`singleEntryFiltered_${i}`} />;
+            return (<SingleResult {...single} key={`singleEntryFiltered_${i}`} />);
           }
         })}
+        
     </div>
   );
 };

@@ -46,6 +46,7 @@ function App() {
   useEffect(() => {
     getAllFiltersForId(data).then(res => {
       dispatch({ type: 'setFiltersForId', payload: res });
+      document.body.classList = 'bg-white app-blog';
     });
   }, []);
   const dispatchContex = useMemo(() => ({ dispatch }), [dispatch]);
