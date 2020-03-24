@@ -3,7 +3,8 @@ import { StateContext } from '../GlobalContex';
 import getFilterGroup from '../utils/getFilterGroup';
 
 import CheckboxGroup from '../components/inputs/CheckboxGroup'
-import Dropdown from '../components/inputs/Dropdown'
+import Dropdown from '../components/inputs/Dropdown';
+import Input from '../components/inputs/InputText'
 
 
 const SingleFilter = props => {
@@ -18,6 +19,8 @@ const SingleFilter = props => {
        return <CheckboxGroup  checkboxValue={filters} parent={name}/>
       case 'dropdown':
         return <Dropdown selectValue={filters} parent={name} />
+      case 'input': 
+        return <Input parent={name} />
       default:
         throw new Error();
  

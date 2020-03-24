@@ -12,6 +12,18 @@ function SideBarFilter() {
       title: 'Skill level'
     },
     {
+      name: 'Age',
+      type: 'dropdown',
+      dataType: 'string',
+      title: 'Age'
+    },
+    {
+      name: 'LiveIn',
+      type: 'input',
+      dataType: 'string',
+      title: 'Postcode - e.g. DY7 4PU'
+    },
+    {
       name: 'Opportunity',
       type: 'checkbox',
       dataType: 'array',
@@ -28,14 +40,7 @@ function SideBarFilter() {
       type: 'checkbox',
       dataType: 'array',
       title: 'Are you currently employed?'
-    },
-    {
-      name: 'Age',
-      type: 'dropdown',
-      dataType: 'string',
-      title: 'Age'
-    },
-    
+    }
   ];
 
   return (

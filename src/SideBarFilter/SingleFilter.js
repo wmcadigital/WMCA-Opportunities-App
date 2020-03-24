@@ -60,15 +60,6 @@ const Filter = props => {
 
   return (
     <div>
-      {/* <label htmlFor={filterName}>{filterName}</label>
-      <input
-        type="checkbox"
-        value={name}
-        checked={isSelected}
-        onChange={() => {
-          onInputChange();
-        }}
-      /> */}
       {getInput()}
     </div>
   );
