@@ -12,6 +12,7 @@ import { DispatchContext, StateContext } from './GlobalContex';
 function App() {
   /* move all this to global reducer */
   let initialFilterStatus = {
+    isIn:null,
     isSearching: true,
     allJobs: [],
     filterKeysForId: {},
@@ -36,6 +37,8 @@ function App() {
         return { ...state, filterKeysForId: action.payload };
       case 'setAllFilters':
         return { ...state, allFilters: action.payload };
+      case 'isInTheCounty':
+        return { ...state, isIn: action.payload}
       default:
         throw new Error();
     }

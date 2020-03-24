@@ -1,17 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { StateContext } from '../GlobalContex';
-import ResultsHeader from './ResultsHeader';
-import SingleResult from './SingleResult';
+import ResultsOutOfArea from './ResultOutOfArea';
+import ResultsAll from './ResultsAll';
 
 const ResultsFiltered = () => {
   const data = useContext(StateContext);
   const selectedJobs = data.state.selectedJobs;
-  const [idsToDisplay, setIdsToDisplay] = useState([]);
-  const allJobs = data.state.allJobs;
   const filterKeysForId = data.state.filterKeysForId;
+  const allJobs = data.state.allJobs;
+  const isInData = data.state.isIn
+  const [idsToDisplay, setIdsToDisplay] = useState([]);
+  
 
   async function getSelectedIds() {
-    let ids = []
+    let ids = [];
     selectedJobs.forEach(job => {
       for (var key in filterKeysForId) {
         if (filterKeysForId.hasOwnProperty(key)) {
@@ -27,22 +29,23 @@ const ResultsFiltered = () => {
   }
 
   useEffect(() => {
-    getSelectedIds().then( (res)=> {
-      setIdsToDisplay(res)
+    getSelectedIds().then(res => {
+      setIdsToDisplay(res);
     });
+    return () => {
+      setIdsToDisplay([])
+    }
   }, [selectedJobs]);
 
   return (
+    
     <div>
-      <ResultsHeader allJobs={idsToDisplay} />
-      {/* <h2>{idsToDisplay.length} results</h2> */}
-      {allJobs && idsToDisplay.length > 0 &&
-        allJobs.map((single, i) => {
-          if (idsToDisplay.indexOf(single.Id.toString()) > -1) {
-            return (<SingleResult {...single} key={`singleEntryFiltered_${i}`} />);
-          }
-        })}
-        
+      {console.log('isInDataisInDataisInDataisInDataisInDataisInData',isInData)}
+      {idsToDisplay && idsToDisplay.length > 0
+      ?<ResultsAll  idsToDisplay={idsToDisplay} allJobs={allJobs} /> 
+      :<ResultsOutOfArea />
+      }
+
     </div>
   );
 };
