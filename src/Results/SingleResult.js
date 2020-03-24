@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SingleResult = (props) => {
-  const { Name, Where, LiveIn, Age, DateFrom, DateTo, Summary, Url } = props;
+  const { Name, Where, LiveIn, Age, DateFrom, DateTo, Summary, Url, Opportunity, Category,Eligibility  } = props;
   return (
       <>
       <article className="wdgt">
@@ -20,6 +20,14 @@ const SingleResult = (props) => {
             <a className="btn-secondary" href={Url}> Read more</a>
             <i className="icon-link-external icon-large"></i>
           </p>
+        </div>
+        <div>
+          {/* <p>Tags:</p>
+          <pre>{JSON.stringify(Opportunity, null, 4)}</pre>
+          <pre>{JSON.stringify(Category, null, 4)}</pre>*/}
+          {/* <pre>{JSON.stringify(LiveIn, null, 4)}</pre>  */}
+
+
         </div>
       </article>
       <hr/>
