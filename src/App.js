@@ -12,7 +12,7 @@ import { DispatchContext, StateContext } from './GlobalContex';
 function App() {
   /* move all this to global reducer */
   let initialFilterStatus = {
-    allJobs: data,
+    allJobs: [],
     filterKeysForId: {},
     selectedJobs: [],
     allFilters: [],
@@ -44,10 +44,20 @@ function App() {
   /*  end off move all this to global reducer */
 
   useEffect(() => {
-    getAllFiltersForId(data).then(res => {
-      dispatch({ type: 'setFiltersForId', payload: res });
-      document.body.classList = 'bg-white app-blog';
+    document.body.classList = 'bg-white app-blog';
+    fetch('https://beta.wmca.org.uk/what-we-do/productivity-and-skills/opportunities/?alttemplate=findAnOpportunityJSON')
+    .then(response=>response.json())
+    .then((res)=>{
+      dispatch({type: 'addCategoriesData', payload: res})
+      getAllFiltersForId(res).then(response => {
+        dispatch({ type: 'setFiltersForId', payload: response });
+        
+      });
     });
+
+    
+
+    
   }, []);
   const dispatchContex = useMemo(() => ({ dispatch }), [dispatch]);
 

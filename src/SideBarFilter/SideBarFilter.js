@@ -39,7 +39,7 @@ function SideBarFilter() {
   ];
 
   return (
-    <div className="container-wide bg-white pad-30">
+    <div className="container-wide bg-white">
       <div className="pure-g justify-between">
         <div className="pure-u-1">
           <h2>Filter</h2>

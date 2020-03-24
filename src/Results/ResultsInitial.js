@@ -8,8 +8,8 @@ const ResultsWrapper = () => {
   const allJobs = data.state.allJobs;
   return (
     <div>
-      <h2>{allJobs.length} results</h2>
-      {allJobs && allJobs.map((single, i) => {
+      <h2>{ allJobs.length > 0 && allJobs.length} results</h2>
+      {allJobs.length > 0 && allJobs.map((single, i) => {
         return (
           <SingleResult {...single} key={`singleEntry_${i}`} />
         )

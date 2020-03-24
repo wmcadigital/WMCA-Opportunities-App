@@ -7,7 +7,6 @@ import Dropdown from '../components/inputs/Dropdown'
 
 
 const SingleFilter = props => {
-  console.log(props);
   const { name, type } = props.parent;
   const [filters, setFilters] = useState([]);
   // const dispatcher = useContext(DispatchContext);

@@ -18,7 +18,7 @@ const SingleResult = (props) => {
         <div className="text-right">
           <p>
             <a className="btn-secondary" href={Url}> Read more</a>
-            <i claclassNames="icon-link-external icon-large"></i>
+            <i className="icon-link-external icon-large"></i>
           </p>
         </div>
       </article>

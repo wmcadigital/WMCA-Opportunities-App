@@ -28,7 +28,6 @@ const ResultsFiltered = () => {
 
   useEffect(() => {
     getSelectedIds().then( (res)=> {
-      console.log(res)
       setIdsToDisplay(res)
     });
   }, [selectedJobs]);

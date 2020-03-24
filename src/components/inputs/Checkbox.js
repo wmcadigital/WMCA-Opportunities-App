@@ -8,7 +8,7 @@ function Checkbox(props) {
   const dispatcher = useContext(DispatchContext);
 
   function onInputChange() {
-    toggleSelected(!isSelected);
+    //toggleSelected(!isSelected);
     updateReducer();
   }
 
@@ -33,7 +33,7 @@ function Checkbox(props) {
           <input
             type="checkbox"
             value={name}
-            checked={isSelected}
+            // checked={isSelected}
             onChange={() => {
               onInputChange();
             }}
