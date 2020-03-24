@@ -3,7 +3,7 @@ import { DispatchContext, StateContext } from '../../GlobalContex';
 
 const Input = props => {
   const FETCHURL = 'https://apis.networkwestmidlands.com/Addresses/AddressByPostcode/';
-  const WAIT_INTERVAL = 1500;
+  const WAIT_INTERVAL = 1700;
   let timer = null;
   const refInput = useRef();
   const [inputValue, setInputValue] = useState('');

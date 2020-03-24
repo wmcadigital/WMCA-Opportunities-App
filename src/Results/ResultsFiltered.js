@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { StateContext } from '../GlobalContex';
-
+import ResultsHeader from './ResultsHeader';
 import SingleResult from './SingleResult';
 
 const ResultsFiltered = () => {
@@ -34,7 +34,8 @@ const ResultsFiltered = () => {
 
   return (
     <div>
-      <h2>{idsToDisplay.length} results</h2>
+      <ResultsHeader allJobs={idsToDisplay} />
+      {/* <h2>{idsToDisplay.length} results</h2> */}
       {allJobs && idsToDisplay.length > 0 &&
         allJobs.map((single, i) => {
           if (idsToDisplay.indexOf(single.Id.toString()) > -1) {

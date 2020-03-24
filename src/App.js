@@ -12,6 +12,7 @@ import { DispatchContext, StateContext } from './GlobalContex';
 function App() {
   /* move all this to global reducer */
   let initialFilterStatus = {
+    isSearching: true,
     allJobs: [],
     filterKeysForId: {},
     selectedJobs: [],
