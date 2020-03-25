@@ -30,7 +30,7 @@ const ResultsAll = props => {
     </div>
   );
 };
-// Name, Where, LiveIn, Age, DateFrom, DateTo, Summary, Url
+
 export default ResultsAll;
 
 ResultsAll.propTypes = {

@@ -11,7 +11,6 @@ function CheckboxGroup(props) {
         checkboxValue.map(checkBox => {
           return <Checkbox key={`${parent}_${checkBox}`} name={checkBox} parent={parent} />;
         })}
-      ;
     </div>
   );
 }
