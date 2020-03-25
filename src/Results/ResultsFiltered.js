@@ -29,9 +29,6 @@ const ResultsFiltered = () => {
     getSelectedIds().then(res => {
       setIdsToDisplay(res);
     });
-    return () => {
-      setIdsToDisplay([]);
-    };
   }, [selectedJobs]);
 
   return (

@@ -9,7 +9,6 @@ function App() {
   /* move all this to global reducer */
   const initialFilterStatus = {
     isIn: null,
-    isSearching: true,
     allJobs: [],
     filterKeysForId: {},
     selectedJobs: [],
