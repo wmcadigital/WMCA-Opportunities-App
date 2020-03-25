@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { StateContext } from '../GlobalContex';
-import ResultsHeader from './ResultsHeader'
-
+import ResultsHeader from './ResultsHeader';
 import SingleResult from './SingleResult';
 
 const ResultsWrapper = () => {

@@ -1,6 +1,6 @@
 // import getAllFilters from './getAllFilters'
 
-const getAllFiltersForId = async (data) => {
+const getAllFiltersForId = async data => {
   const allFitersWithId = {};
 
   data.forEach(el => {

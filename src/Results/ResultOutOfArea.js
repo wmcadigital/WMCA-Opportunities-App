@@ -16,44 +16,44 @@ const ResultOutOfArea = () => {
 
       <h2>Apprenticeships</h2>
       <p>
-        <a className="btn-secondary" href="#">
-        Find an apprenticeship - GOV.UK
+        <a className="btn-secondary" href="/">
+          Find an apprenticeship - GOV.UK
         </a>
-        <i className="icon-link-external icon-large"></i>
+        <i className="icon-link-external icon-large" />
       </p>
       <p>
-        <a className="btn-secondary" href="#">
-        Apprentice Finde
+        <a className="btn-secondary" href="/">
+          Apprentice Finde
         </a>
-        <i className="icon-link-external icon-large"></i>
+        <i className="icon-link-external icon-large" />
       </p>
 
       <h2>Training schemes</h2>
       <p>
-        <a className="btn-secondary" href="#">
+        <a className="btn-secondary" href="/">
           Construction Gateway
         </a>
-        <i className="icon-link-external icon-large"></i>
+        <i className="icon-link-external icon-large" />
       </p>
       <p>
-        <a className="btn-secondary" href="#">
+        <a className="btn-secondary" href="/">
           Find a training scheme
         </a>
-        <i className="icon-link-external icon-large"></i>
+        <i className="icon-link-external icon-large" />
       </p>
 
       <h2>Work placements</h2>
       <p>
-        <a className="btn-secondary" href="#">
+        <a className="btn-secondary" href="/">
           Construction Gateway
         </a>
-        <i className="icon-link-external icon-large"></i>
+        <i className="icon-link-external icon-large" />
       </p>
       <p>
-        <a className="btn-secondary" href="#">
+        <a className="btn-secondary" href="/">
           Find a training scheme
         </a>
-        <i className="icon-link-external icon-large"></i>
+        <i className="icon-link-external icon-large" />
       </p>
     </div>
   );

@@ -1,16 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const SingleResult = props => {
-  const {
-    Name,
-    Where,
-    LiveIn,
-    Age,
-    DateFrom,
-    DateTo,
-    Summary,
-    Url,
-  } = props;
+  const { Name, Where, LiveIn, Age, DateFrom, DateTo, Summary, Url } = props;
   return (
     <>
       <article className="wdgt">
@@ -39,10 +31,9 @@ const SingleResult = props => {
             <a className="btn-secondary" href={Url}>
               Read more
             </a>
-            <i className="icon-link-external icon-large"></i>
+            <i className="icon-link-external icon-large" />
           </p>
         </div>
-        <div></div>
       </article>
       <hr />
     </>
@@ -50,3 +41,25 @@ const SingleResult = props => {
 };
 
 export default SingleResult;
+
+SingleResult.propTypes = {
+  Name: PropTypes.string,
+  Where: PropTypes.string,
+  LiveIn: PropTypes.string,
+  Age: PropTypes.string,
+  DateFrom: PropTypes.string,
+  DateTo: PropTypes.string,
+  Summary: PropTypes.string,
+  Url: PropTypes.string
+};
+
+SingleResult.defaultProps = {
+  Name: '',
+  Where: '',
+  LiveIn: '',
+  Age: '',
+  DateFrom: '',
+  DateTo: '',
+  Summary: '',
+  Url: ''
+};

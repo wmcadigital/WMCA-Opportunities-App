@@ -1,5 +1,7 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 import Checkbox from './Checkbox';
+
 
 function CheckboxGroup(props) {
   const { checkboxValue, parent} = props;
@@ -13,5 +15,10 @@ function CheckboxGroup(props) {
   )
 }
 
-export default CheckboxGroup
+export default CheckboxGroup;
+
+CheckboxGroup.propTypes = {
+  checkboxValue: PropTypes.string,
+  parent: PropTypes.string
+}
 

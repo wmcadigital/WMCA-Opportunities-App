@@ -1,7 +1,7 @@
 const getFiltersGroup = (data, filter) => {
   const allFilters = [];
-  data.map( (el) => {
-     return allFilters.push(el[filter]);
+  data.map(el => {
+    return allFilters.push(el[filter]);
   })
 
   const unique = new Set(allFilters.flat())

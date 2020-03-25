@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const ResultsHeader = (props) => {
-  const {allJobs, text} = props;
+const ResultsHeader = props => {
+  const { allJobs, text  } = props;
   return (
     <div>
       {allJobs.length === 0 ? 
@@ -12,4 +13,12 @@ const ResultsHeader = (props) => {
   )
 }
 
-export default ResultsHeader
+export default ResultsHeader;
+
+ResultsHeader.propTypes = {
+  allJobs: PropTypes.array,
+  text: PropTypes.string
+}
+
+
+

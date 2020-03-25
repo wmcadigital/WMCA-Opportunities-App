@@ -7,8 +7,8 @@ import { DispatchContext, StateContext } from './GlobalContex';
 
 function App() {
   /* move all this to global reducer */
-  let initialFilterStatus = {
-    isIn:null,
+  const initialFilterStatus = {
+    isIn: null,
     isSearching: true,
     allJobs: [],
     filterKeysForId: {},
@@ -34,7 +34,7 @@ function App() {
       case 'setAllFilters':
         return { ...state, allFilters: action.payload };
       case 'isInTheCounty':
-        return { ...state, isIn: action.payload}
+        return { ...state, isIn: action.payload };
       default:
         throw new Error();
     }
@@ -45,15 +45,16 @@ function App() {
 
   useEffect(() => {
     document.body.classList = 'bg-white app-blog';
-    fetch('https://beta.wmca.org.uk/what-we-do/productivity-and-skills/opportunities/?alttemplate=findAnOpportunityJSON')
-    .then(response=>response.json())
-    .then((res)=>{
-      dispatch({type: 'addCategoriesData', payload: res})
-      getAllFiltersForId(res).then(response => {
-        dispatch({ type: 'setFiltersForId', payload: response });
-        
+    fetch(
+      'https://beta.wmca.org.uk/what-we-do/productivity-and-skills/opportunities/?alttemplate=findAnOpportunityJSON'
+    )
+      .then(response => response.json())
+      .then(res => {
+        dispatch({ type: 'addCategoriesData', payload: res });
+        getAllFiltersForId(res).then(response => {
+          dispatch({ type: 'setFiltersForId', payload: response });
+        });
       });
-    });
   }, []);
   const dispatchContex = useMemo(() => ({ dispatch }), [dispatch]);
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { DispatchContext, StateContext } from '../../GlobalContex';
 
-const Input = props => {
+const Input = () => {
   const FETCHURL = 'https://apis.networkwestmidlands.com/Addresses/AddressByPostcode/';
   const COUNTY = 'West Midlands';
   const WAIT_INTERVAL = 2000;
@@ -18,52 +18,49 @@ const Input = props => {
     clearTimeout(timer);
     setInputValue(current.value);
   }
+  function resetAllFilters() {
+    dispatcher.dispatch({
+      type: 'updateFilters',
+      payload: []
+    });
+  }
+  function handleSearchResults(res) {
+    if (res === COUNTY) {
+      let arr = filters.state.selectedJobs;
+      if (arr.indexOf(inputValue) < 0) {
+        arr = [...arr, inputValue, COUNTY];
+      } else {
+        arr = arr.filter(el => el !== inputValue && el !== COUNTY);
+      }
+      dispatcher.dispatch({
+        type: 'updateFilters',
+        payload: arr
+      });
+    } else {
+      resetAllFilters();
+    }
+  }
   function triggerChange() {
     const url = encodeURI(`${FETCHURL}${inputValue}`);
     if (inputValue !== '') {
       fetch(url)
         .then(response => response.text())
         .then(str => {
-          let location = JSON.parse(str);
-          if(location.length > 0) {
-            handleSearchResults(location[0].county)
+          const location = JSON.parse(str);
+          if (location.length > 0) {
+            handleSearchResults(location[0].county);
             toggleisIn(location[0].county === COUNTY);
-          }else{
-            console.log('NO VALUE')
+          } else {
+            console.log('NO VALUE');
           }
         });
     } else {
-      if(!isIn) {
+      if (!isIn) {
         resetAllFilters(COUNTY);
       }
       toggleisIn(null);
-      handleSearchResults()
+      handleSearchResults();
     }
-  }
-  function resetAllFilters () {
-    dispatcher.dispatch({
-      type: 'updateFilters',
-      payload: []
-    });
-  }
-
-  function handleSearchResults(res) {
-    
-    if(res === COUNTY) {
-      let arr = filters.state.selectedJobs;
-      if ( arr.indexOf(inputValue) < 0) {
-        arr = [...arr, inputValue, COUNTY];
-      } else {
-        arr = arr.filter( el => el !== inputValue && el !== COUNTY)
-      }
-      dispatcher.dispatch({
-        type: 'updateFilters',
-        payload: arr
-      });
-    }else{
-      resetAllFilters ()
-    }
-    
   }
 
   function delayTrigger() {
