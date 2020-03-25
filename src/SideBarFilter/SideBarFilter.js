@@ -1,9 +1,7 @@
 import React from 'react';
-// import { StateContext } from '../GlobalContex';
 import FilterGroup from './FilterGroup';
 
 function SideBarFilter() {
-
   const sectionsConfig = [
     {
       name: 'SkillLevel',
@@ -49,8 +47,16 @@ function SideBarFilter() {
         <div className="pure-u-1">
           <h2>Filter</h2>
           {sectionsConfig &&
-            sectionsConfig.map((filter, i) => {
-              return <FilterGroup {...filter} key={`${filter.name}_${i}`} />;
+            sectionsConfig.map(filter => {
+              return (
+                <FilterGroup
+                  name={filter.name}
+                  type={filter.type}
+                  dataType={filter.string}
+                  title={filter.title}
+                  key={`${filter.name}_${filter.title}`}
+                />
+              );
             })}
         </div>
       </div>

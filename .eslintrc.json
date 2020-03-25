@@ -13,6 +13,7 @@
   },
   "plugins": ["jsx-a11y", "jam3", "prettier"],
   "rules": {
+    "jsx-a11y/no-onchange": "warn",
     "react/no-danger": 0, // Turned this rule off for dangerouslySetInnerHTML, as we are using the jam3/no-sanitizer-with-danger rule to flag if we are using it without sanitizer
     "jam3/no-sanitizer-with-danger": [
       2,
@@ -22,7 +23,13 @@
     ],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-curly-newline": 0,
-    "react/jsx-one-expression-per-line": 0
+    "react/jsx-one-expression-per-line": 0,
+    "jsx-a11y/label-has-associated-control": [ 2, {
+      "labelComponents": ["CustomInputLabel"],
+      "labelAttributes": ["label"],
+      "controlComponents": ["CustomInput"],
+      "depth": 3
+    }]
   },
   "settings": {
     "import/resolver": {

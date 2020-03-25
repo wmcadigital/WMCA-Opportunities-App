@@ -1,39 +1,38 @@
 import React, { useState, useContext, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { DispatchContext, StateContext } from '../../GlobalContex';
 
 function DropDown(props) {
-  const  DEFAULT = 'select'
+  const DEFAULT = 'select';
   const { selectValue, parent } = props;
   const [selectedValue, setSelected] = useState('select');
   const filters = useContext(StateContext);
   const dispatcher = useContext(DispatchContext);
   let arr = filters.state.selectedJobs;
 
+  function updateReducer(name) {
+    if (arr.indexOf(name) < 0 && name !== DEFAULT) {
+      arr = [...arr, name];
+    } else {
+      arr = arr.filter(el => el !== name);
+    }
+    dispatcher.dispatch({
+      type: 'updateFilters',
+      payload: arr
+    });
+  }
+
   function onSlectedChange(e) {
-    arr = arr.filter( el => el !== selectedValue )
+    arr = arr.filter(el => el !== selectedValue);
     setSelected(e.target.value);
     updateReducer(e.target.value);
   }
 
-  function updateReducer(name) {
-    
-    if ( arr.indexOf(name) < 0 && name !== DEFAULT) {
-      arr = [...arr, name];
-    } else {
-      arr = arr.filter( el => el !== name )
-    }
-    
-    dispatcher.dispatch({
-      type:'updateFilters',
-      payload: arr
-    })
-  }
   useEffect(() => {
-    if(filters.state.selectedJobs.length === 0) {
-      setSelected(false)
+    if (filters.state.selectedJobs.length === 0) {
+      setSelected(false);
     }
-
-  }, [filters.state.selectedJobs])
+  }, [filters.state.selectedJobs]);
 
   return (
     <div className="pure-u-1">
@@ -45,18 +44,16 @@ function DropDown(props) {
             onSlectedChange(e);
           }}
         >
-          <option value={DEFAULT}>
-            Select
-          </option>
+          <option value={DEFAULT}>Select</option>
           {selectValue &&
-            selectValue.map((select, i) => {
+            selectValue.map(select => {
               return (
                 <option
                   onChange={e => {
                     onSlectedChange(e);
                   }}
                   value={select}
-                  key={`selectt_${i}`}
+                  key={`select_${select}`}
                 >
                   {select}
                 </option>
@@ -69,3 +66,13 @@ function DropDown(props) {
 }
 
 export default DropDown;
+
+DropDown.propTypes = {
+  selectValue: PropTypes.instanceOf(Array),
+  parent: PropTypes.string
+};
+
+DropDown.defaultProps = {
+  selectValue: [],
+  parent: ''
+};

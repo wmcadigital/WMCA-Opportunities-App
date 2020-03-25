@@ -93,7 +93,7 @@ const Input = () => {
         handleInputChange();
       }}
       ref={refInput}
-    ></input>
+    />
   );
 };
 

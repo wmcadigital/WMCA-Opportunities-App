@@ -5,16 +5,14 @@ import ResultsAll from './ResultsAll';
 
 const ResultsFiltered = () => {
   const data = useContext(StateContext);
-  const selectedJobs = data.state.selectedJobs;
-  const filterKeysForId = data.state.filterKeysForId;
-  const allJobs = data.state.allJobs;
+  const { selectedJobs, filterKeysForId, allJobs } = data.state;
   const [idsToDisplay, setIdsToDisplay] = useState([]);
-  
-
   async function getSelectedIds() {
     let ids = [];
     selectedJobs.forEach(job => {
-      for (var key in filterKeysForId) {
+      // eslint-disable-next-line no-restricted-syntax
+      for (const key in filterKeysForId) {
+        // eslint-disable-next-line no-prototype-builtins
         if (filterKeysForId.hasOwnProperty(key)) {
           if (filterKeysForId[key].indexOf(job) > -1) {
             ids.push(key);
@@ -32,18 +30,17 @@ const ResultsFiltered = () => {
       setIdsToDisplay(res);
     });
     return () => {
-      setIdsToDisplay([])
-    }
+      setIdsToDisplay([]);
+    };
   }, [selectedJobs]);
 
   return (
-    
     <div>
-      {idsToDisplay && idsToDisplay.length > 0
-      ?<ResultsAll  idsToDisplay={idsToDisplay} allJobs={allJobs} /> 
-      :<ResultsOutOfArea />
-      }
-
+      {idsToDisplay && idsToDisplay.length > 0 ? (
+        <ResultsAll idsToDisplay={idsToDisplay} allJobs={allJobs} />
+      ) : (
+        <ResultsOutOfArea />
+      )}
     </div>
   );
 };

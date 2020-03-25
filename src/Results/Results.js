@@ -6,15 +6,15 @@ import ResultsFiltered from './ResultsFiltered';
 
 const ResultsAll = () => {
   const data = useContext(StateContext);
-  const selectedJobs = data.state.selectedJobs;
-  const isInData = data.state.isIn
+  const { selectedJobs, isIn } = data.state;
 
   return (
     <div>
-      {selectedJobs && selectedJobs.length === 0 && isInData === null
-      ? <ResultsInitial />
-      : <ResultsFiltered />
-      }
+      {selectedJobs && selectedJobs.length === 0 && isIn === null ? (
+        <ResultsInitial />
+      ) : (
+        <ResultsFiltered />
+      )}
     </div>
   );
 };
