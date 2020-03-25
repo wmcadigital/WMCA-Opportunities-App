@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { DispatchContext, StateContext } from '../../GlobalContex';
 
 function Checkbox(props) {
@@ -8,7 +8,7 @@ function Checkbox(props) {
   const dispatcher = useContext(DispatchContext);
 
   function onInputChange() {
-    //toggleSelected(!isSelected);
+    toggleSelected(!isSelected);
     updateReducer();
   }
 
@@ -25,6 +25,14 @@ function Checkbox(props) {
       payload: arr
     });
   }
+
+  useEffect(() => {
+    if(filters.state.selectedJobs.length === 0) {
+      toggleSelected(false)
+    }
+
+  }, [filters.state.selectedJobs])
+
   return (
     <div className="wmca-form">
       <span className="wmca-form__checkboxes pure-u-1">
@@ -33,7 +41,7 @@ function Checkbox(props) {
           <input
             type="checkbox"
             value={name}
-            // checked={isSelected}
+            checked={isSelected}
             onChange={() => {
               onInputChange();
             }}

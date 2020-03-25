@@ -2,10 +2,6 @@ import React, { useEffect, useReducer, useMemo } from 'react';
 import Header from './Header/Header';
 import SideBarFilter from './SideBarFilter/SideBarFilter';
 import Results from './Results/Results';
-// import Opps from './Opps/Opps';
-//import data from './fakeOpps.json';
-
-import data from './wholeData.json';
 import getAllFiltersForId from './utils/getAllFiltersForId';
 import { DispatchContext, StateContext } from './GlobalContex';
 

@@ -9,7 +9,7 @@ const ResultsWrapper = () => {
   const allJobs = data.state.allJobs;
   return (
     <div>
-      <ResultsHeader allJobs={allJobs} text={'Loading'} />
+      <ResultsHeader allJobs={allJobs} text={'Fetching results...'} />
       {allJobs.length > 0 &&
         allJobs.map((single, i) => {
           return <SingleResult {...single} key={`singleEntry_${i}`} />;

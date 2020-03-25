@@ -8,7 +8,6 @@ const ResultsFiltered = () => {
   const selectedJobs = data.state.selectedJobs;
   const filterKeysForId = data.state.filterKeysForId;
   const allJobs = data.state.allJobs;
-  const isInData = data.state.isIn
   const [idsToDisplay, setIdsToDisplay] = useState([]);
   
 
@@ -40,7 +39,6 @@ const ResultsFiltered = () => {
   return (
     
     <div>
-      {console.log('isInDataisInDataisInDataisInDataisInDataisInData',isInData)}
       {idsToDisplay && idsToDisplay.length > 0
       ?<ResultsAll  idsToDisplay={idsToDisplay} allJobs={allJobs} /> 
       :<ResultsOutOfArea />

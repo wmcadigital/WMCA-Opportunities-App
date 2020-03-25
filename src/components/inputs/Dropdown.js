@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { DispatchContext, StateContext } from '../../GlobalContex';
 
 function DropDown(props) {
@@ -28,6 +28,12 @@ function DropDown(props) {
       payload: arr
     })
   }
+  useEffect(() => {
+    if(filters.state.selectedJobs.length === 0) {
+      setSelected(false)
+    }
+
+  }, [filters.state.selectedJobs])
 
   return (
     <div className="pure-u-1">

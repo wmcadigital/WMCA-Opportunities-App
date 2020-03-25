@@ -4,7 +4,7 @@ import { DispatchContext, StateContext } from '../../GlobalContex';
 const Input = props => {
   const FETCHURL = 'https://apis.networkwestmidlands.com/Addresses/AddressByPostcode/';
   const COUNTY = 'West Midlands';
-  const WAIT_INTERVAL = 1700;
+  const WAIT_INTERVAL = 2000;
   let timer = null;
   const filters = useContext(StateContext);
   const dispatcher = useContext(DispatchContext);
@@ -19,61 +19,69 @@ const Input = props => {
     setInputValue(current.value);
   }
   function triggerChange() {
-    console.log(inputValue);
-    const val = inputValue;
-    const url = encodeURI(`${FETCHURL}${val}`);
-    if (val !== '') {
+    const url = encodeURI(`${FETCHURL}${inputValue}`);
+    if (inputValue !== '') {
       fetch(url)
         .then(response => response.text())
         .then(str => {
           let location = JSON.parse(str);
           if(location.length > 0) {
-            handleSearchResults(location[0])
+            handleSearchResults(location[0].county)
+            toggleisIn(location[0].county === COUNTY);
           }else{
             console.log('NO VALUE')
-            console.log('inputValue not found:', inputValue)
           }
         });
     } else {
-      console.log('NO VALUE2')
-      toggleisIn(null)
+      if(!isIn) {
+        resetAllFilters(COUNTY);
+      }
+      toggleisIn(null);
+      handleSearchResults()
     }
+  }
+  function resetAllFilters () {
+    dispatcher.dispatch({
+      type: 'updateFilters',
+      payload: []
+    });
   }
 
   function handleSearchResults(res) {
-    console.log('res.county === COUNTY',res.county === COUNTY);
     
-    if(res.county === COUNTY) {
+    if(res === COUNTY) {
       let arr = filters.state.selectedJobs;
       if ( arr.indexOf(inputValue) < 0) {
         arr = [...arr, inputValue, COUNTY];
       } else {
-        arr = arr.filter( el => el !== inputValue )
+        arr = arr.filter( el => el !== inputValue && el !== COUNTY)
       }
       dispatcher.dispatch({
         type: 'updateFilters',
         payload: arr
       });
+    }else{
+      resetAllFilters ()
     }
-
-    toggleisIn(res.county === COUNTY);
-
+    
   }
 
-  useEffect(() => {
+  function delayTrigger() {
     timer = setTimeout(() => {
       triggerChange();
     }, WAIT_INTERVAL);
+  }
+
+  useEffect(() => {
+    delayTrigger();
   }, [inputValue]);
 
   useEffect(() => {
-    console.log('IN useEffect in:',isIn);
-    
     dispatcher.dispatch({
       type: 'isInTheCounty',
       payload: isIn
     });
-  }, [isIn]);
+  }, [isIn, dispatcher]);
 
   return (
     <input

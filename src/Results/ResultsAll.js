@@ -9,9 +9,9 @@ const ResultsAll = (props) => {
       <ResultsHeader allJobs={idsToDisplay} text={'Searching...'} />
         {allJobs && idsToDisplay.length > 0 &&
           allJobs.map((single, i) => {
-            if (idsToDisplay.indexOf(single.Id.toString()) > -1) {
-              return <SingleResult {...single} key={`singleEntryFiltered_${i}`} />;
-            }
+            // if (idsToDisplay.indexOf(single.Id.toString()) > -1) {
+              return idsToDisplay.indexOf(single.Id.toString()) > -1 && <SingleResult {...single} key={`singleEntryFiltered_${i}`} />;
+            // }
           })}
     </div>
   )
