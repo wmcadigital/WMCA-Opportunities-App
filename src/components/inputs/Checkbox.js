@@ -29,7 +29,6 @@ function Checkbox(props) {
       toggleSelected(false);
     }
   }, [filters.state.selectedJobs]);
-
   return (
     <div className="wmca-form">
       <span className="wmca-form__checkboxes pure-u-1">
