@@ -50,8 +50,6 @@ const Input = () => {
           if (location.length > 0) {
             handleSearchResults(location[0].county);
             toggleisIn(location[0].county === COUNTY);
-          } else {
-            console.log('NO VALUE');
           }
         });
     } else {

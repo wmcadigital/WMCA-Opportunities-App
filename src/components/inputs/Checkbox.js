@@ -21,7 +21,6 @@ function Checkbox(props) {
     });
   }
   function onInputChange() {
-    console.log('onInputChange');
     toggleSelected(!isSelected);
     updateReducer();
   }
