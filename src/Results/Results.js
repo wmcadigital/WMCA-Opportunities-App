@@ -10,11 +10,7 @@ const ResultsAll = () => {
 
   return (
     <div>
-      {selectedJobs.length === 0 && isIn === null ? (
-        <ResultsInitial />
-      ) : (
-        <ResultsFiltered />
-      )}
+      {selectedJobs.length === 0 && isIn === null ? <ResultsInitial /> : <ResultsFiltered />}
     </div>
   );
 };

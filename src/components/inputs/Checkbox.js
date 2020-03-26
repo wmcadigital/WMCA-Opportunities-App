@@ -21,16 +21,15 @@ function Checkbox(props) {
     });
   }
   function onInputChange() {
+    console.log('onInputChange');
     toggleSelected(!isSelected);
-    updateReducer()
-    
+    updateReducer();
   }
   useEffect(() => {
     if (filters.state.selectedJobs.length === 0) {
       toggleSelected(false);
     }
   }, [filters.state.selectedJobs]);
-
 
   return (
     <div className="wmca-form">

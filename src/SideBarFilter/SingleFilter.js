@@ -8,44 +8,8 @@ import InputText from '../components/inputs/InputText'
 
 const Filter = props => {
   const { filterName } = props;
-  const { name, type, dataType, title } = props.parent
-  const dispatcher = useContext(DispatchContext);
-  const filters = useContext(StateContext);
-  const [isSelected, setSelected] = useState(true);
-  const dispatchType = isSelected ? 'removeFilterElement' : 'addFilterElement';
-
-  const isArray = Array.isArray(filters.state[name]);
-
-  function onInputChange() {
-    setSelected(!isSelected);
-    updateFiltersHelper(filters.state.selectedJobs, filterName, dispatchType).then(res => {
-      dispatcher.dispatch({ type: 'updateFilters', payload: res });
-    });
-    dispatchIt();
-  }
-  function dispatchIt() {
-    let payloadVal;
-    if(isArray) {
-      payloadVal = dispatchArray();
-    } else {
-      payloadVal = filterName;
-    }
-    
-    dispatcher.dispatch({
-      type:'updateSingleFilter',
-      payload: {
-        filterName:name,
-        filter: payloadVal
-      }
-    })
-  }
-
-  function dispatchArray() {
-    
-
-    //return arr
-  }
-
+  const { type} = props.parent
+  
   function getInput() {
     switch (type) {
       case 'checkbox':

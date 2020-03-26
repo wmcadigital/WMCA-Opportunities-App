@@ -6,7 +6,7 @@ import SingleResult from './SingleResult';
 const ResultsWrapper = () => {
   const data = useContext(StateContext);
   const { allJobs } = data.state;
-  
+
   return (
     <div>
       <ResultsHeader allJobs={allJobs} text="Fetching results..." />
