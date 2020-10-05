@@ -6,7 +6,7 @@ const SingleResult = props => {
   return (
     <>
       <article className="wdgt">
-        <h2>{Name}</h2>
+        <h3>{Name}</h3>
         <ul>
           <li>
             <span className="highlight">Where it is: </span>
