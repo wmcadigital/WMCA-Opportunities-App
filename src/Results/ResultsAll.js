@@ -21,7 +21,7 @@ const ResultsAll = props => {
                 DateFrom={single.DateFrom}
                 DateTo={single.DateTo}
                 Summary={single.Summary}
-                Url={single.Url}
+                Link={single.Link}
                 key={`singleEntryFiltered_${single.Id}`}
               />
             )

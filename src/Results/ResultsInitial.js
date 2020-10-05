@@ -21,7 +21,7 @@ const ResultsWrapper = () => {
               DateFrom={single.DateFrom}
               DateTo={single.DateTo}
               Summary={single.Summary}
-              Url={single.Url}
+              Link={single.Link}
               key={`singleEntry_${single.Id}`}
             />
           );

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SingleResult = props => {
-  const { Name, Where, LiveIn, Age, DateFrom, DateTo, Summary, Url } = props;
+  const { Name, Where, LiveIn, Age, DateFrom, DateTo, Summary, Link } = props;
   return (
     <>
       <article className="wdgt">
@@ -28,8 +28,8 @@ const SingleResult = props => {
         <p>{Summary}</p>
         <div className="text-right">
           <p>
-            <a className="btn-secondary" href={Url}>
-              Read more
+            <a className="btn-secondary" href={Link} target="_blank" rel="noopener noreferrer">
+              Find out more about the {Name} course
             </a>
             <i className="icon-link-external icon-large" />
           </p>
@@ -50,7 +50,7 @@ SingleResult.propTypes = {
   DateFrom: PropTypes.string,
   DateTo: PropTypes.string,
   Summary: PropTypes.string,
-  Url: PropTypes.string
+  Link: PropTypes.string
 };
 
 SingleResult.defaultProps = {
@@ -61,5 +61,5 @@ SingleResult.defaultProps = {
   DateFrom: '',
   DateTo: '',
   Summary: '',
-  Url: ''
+  Link: ''
 };
