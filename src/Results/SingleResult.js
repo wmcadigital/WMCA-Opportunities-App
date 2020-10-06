@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 const SingleResult = props => {
   const { Name, Where, LiveIn, Age, DateFrom, DateTo, Summary, Link } = props;
@@ -22,7 +23,7 @@ const SingleResult = props => {
           </li>
           <li>
             <span className="highlight">It runs from: </span>
-            {DateFrom} - {DateTo}
+            {moment(DateFrom).format('D MMMM YYYY')} - {moment(DateTo).format('D MMMM YYYY')}
           </li>
         </ul>
         <p>{Summary}</p>
