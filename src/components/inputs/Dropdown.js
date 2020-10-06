@@ -35,32 +35,44 @@ function DropDown(props) {
   }, [filters.state.selectedJobs]);
 
   return (
-    <div className="pure-u-1">
-      <div className="wmca-form wdgt">
-        <select
-          value={selectedValue}
-          id={parent}
-          onChange={e => {
-            onSlectedChange(e);
-          }}
-        >
-          <option value={DEFAULT}>Select</option>
-          {selectValue &&
-            selectValue.map(select => {
-              return (
-                <option
-                  onChange={e => {
-                    onSlectedChange(e);
-                  }}
-                  value={select}
-                  key={`select_${select}`}
-                >
-                  {select}
-                </option>
-              );
-            })}
-        </select>
-      </div>
+    <div className="wmca-form wdgt">
+      {parent === 'SkillLevel' ? (
+        <label htmlFor={parent} className="wmcads-fe-fieldset__legend">
+          <h3 className="wmcads-fe-question">Skill Level</h3>
+        </label>
+      ) : (
+        ''
+      )}
+      {parent === 'Age' ? (
+        <label htmlFor={parent} className="wmcads-fe-fieldset__legend">
+          <h3 className="wmcads-fe-question">Age</h3>
+        </label>
+      ) : (
+        ''
+      )}
+      <select
+        value={selectedValue}
+        id={parent}
+        onChange={e => {
+          onSlectedChange(e);
+        }}
+      >
+        <option value={DEFAULT}>Select</option>
+        {selectValue &&
+          selectValue.map(select => {
+            return (
+              <option
+                onChange={e => {
+                  onSlectedChange(e);
+                }}
+                value={select}
+                key={`select_${select}`}
+              >
+                {select}
+              </option>
+            );
+          })}
+      </select>
     </div>
   );
 }

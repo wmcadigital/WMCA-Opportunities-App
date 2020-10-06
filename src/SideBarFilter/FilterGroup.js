@@ -1,24 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import SingleFilterElement from './SingleFilterElement';
 
 const FilterGroup = props => {
-  const { title } = props;
-
   return (
-    <div className="wmca-form wdgt">
-      <label className="wmca-form-label">{title}:</label>
-      <SingleFilterElement parent={props} />
+    <div className="wmcads-fe-group">
+      <fieldset className="wmcads-fe-fieldset">
+        <SingleFilterElement parent={props} />
+      </fieldset>
     </div>
   );
 };
 
 export default FilterGroup;
-
-FilterGroup.propTypes = {
-  title: PropTypes.string
-};
-
-FilterGroup.defaultProps = {
-  title: ''
-};

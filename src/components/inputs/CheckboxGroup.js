@@ -7,6 +7,27 @@ function CheckboxGroup(props) {
 
   return (
     <div>
+      {parent === 'Opportunity' ? (
+        <legend className="wmcads-fe-fieldset__legend">
+          <h3 className="wmcads-fe-question">Opportunity</h3>
+        </legend>
+      ) : (
+        ''
+      )}
+      {parent === 'Category' ? (
+        <legend className="wmcads-fe-fieldset__legend">
+          <h3 className="wmcads-fe-question">Industry</h3>
+        </legend>
+      ) : (
+        ''
+      )}
+      {parent === 'Eligibility' ? (
+        <legend className="wmcads-fe-fieldset__legend">
+          <h3 className="wmcads-fe-question">Are you currently employed?</h3>
+        </legend>
+      ) : (
+        ''
+      )}
       {checkboxValue &&
         checkboxValue.map(checkBox => {
           return <Checkbox key={`${parent}_${checkBox}`} name={checkBox} parent={parent} />;

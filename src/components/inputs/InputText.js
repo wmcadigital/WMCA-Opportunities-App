@@ -79,19 +79,24 @@ const Input = () => {
   }, [isIn, dispatcher]);
 
   return (
-    <input
-      className="pure-u-1-1"
-      type="text"
-      name="text"
-      id="text"
-      value={inputValue}
-      data-val="true"
-      data-val-required="Please provide a value for Name"
-      onChange={() => {
-        handleInputChange();
-      }}
-      ref={refInput}
-    />
+    <div className="wmcads-fe-group">
+      <label className="wmcads-fe-label" htmlFor="text">
+        <h3 className="wmcads-fe-question">Postcode - e.g. DY7 4PU</h3>
+      </label>
+      <input
+        className="wmcads-fe-input"
+        type="text"
+        name="text"
+        id="text"
+        value={inputValue}
+        data-val="true"
+        data-val-required="Please provide a value for Name"
+        onChange={() => {
+          handleInputChange();
+        }}
+        ref={refInput}
+      />
+    </div>
   );
 };
 
