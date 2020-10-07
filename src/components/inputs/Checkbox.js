@@ -30,22 +30,25 @@ function Checkbox(props) {
     }
   }, [filters.state.selectedJobs]);
   return (
-    <div className="wmca-form">
-      <span className="wmca-form__checkboxes pure-u-1">
-        <label htmlFor={`${name}_${parent}`} className="wmca-form__checkboxes-label">
-          {name}
-          <input
-            type="checkbox"
-            value={name}
-            checked={isSelected}
-            onChange={() => {
-              onInputChange();
-            }}
-            id={`${name}_${parent}`}
-          />
-          <span className="wmca-form__checkboxes-checkmark"> </span>
-        </label>
-      </span>
+    <div className="wmcads-fe-checkboxes">
+      <label htmlFor={`${name}_${parent}`} className="wmcads-fe-checkboxes__container">
+        {name}
+        <input
+          className="wmcads-fe-checkboxes__input"
+          type="checkbox"
+          value={name}
+          checked={isSelected}
+          onChange={() => {
+            onInputChange();
+          }}
+          id={`${name}_${parent}`}
+        />
+        <span className="wmcads-fe-checkboxes__checkmark">
+          <svg className="wmcads-fe-checkboxes__icon">
+            <use xlinkHref="#wmcads-general-icon-checkmark" href="#wmcads-general-icon-checkmark" />
+          </svg>
+        </span>
+      </label>
     </div>
   );
 }
