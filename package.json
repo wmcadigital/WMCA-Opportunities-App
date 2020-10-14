@@ -1,6 +1,6 @@
 {
-  "name": "wmca-oop2",
-  "version": "1.1.4",
+  "name": "wmca-opportunities-app",
+  "version": "1.1.6",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.1.1",
