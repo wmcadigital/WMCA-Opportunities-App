@@ -64,16 +64,16 @@ function App() {
       <Header />
       <DispatchContext.Provider value={dispatchContex}>
         <StateContext.Provider value={stateContex}>
-          <div className="container-wide bg-white pad-30">
-            <div className="pure-g justify-between">
-              <div className="pure-u-1 pure-u-md-1-4">
+          <main className="wmcads-container bg-white pad-30">
+            <div className="wmcads-grid justify-between">
+              <div className="wmcads-col-1 wmcads-col-md-1-4">
                 <SideBarFilter />
               </div>
-              <div className="pure-u-1 pure-u-md-5-8" id="stories" aria-live="polite">
+              <div className="wmcads-col-1 wmcads-col-md-5-8" id="stories" aria-live="polite">
                 <Results />
               </div>
             </div>
-          </div>
+          </main>
         </StateContext.Provider>
       </DispatchContext.Provider>
     </div>
